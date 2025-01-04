@@ -1,0 +1,278 @@
+---
+title: "PROJECT RESUME"
+format: html
+editor: visual
+code-fold: true
+---
+
+## intro
+
+question - among 13 predictors (shown below)- which predictors are best to predict housing prices in Boston? how many predictors are necessary to get the best predictive regression model?
+
+approach - fit 3 models (choosing own model, stepwise regression model, model with all 13 predictors to see what performs best)
+
+how to choose model? - i am using random forest and correlation matrixs (with this I chose 2 predictors)
+
+stepwise regression model - automatically chooses best regression model to use based on lowest AIC values (in this case it chose 11 predictors)
+
+how to see what models are performing best - Knn (doesnt assume linear relationship between predictors and target which is a limitation in regression) -\> creates training and validation sets then uses training data to predict the validation sets and determines how accurately it was predicted
+
+(results are at the conclusion section after code)
+
+`crim`
+
+:   per capita crime rate by town.
+
+`zn`
+
+:   proportion of residential land zoned for lots over 25,000 sq.ft.
+
+`indus`
+
+:   proportion of non-retail business acres per town.
+
+`chas`
+
+:   Charles River dummy variable (= 1 if tract bounds river; 0 otherwise).
+
+`nox`
+
+:   nitrogen oxides concentration (parts per 10 million).
+
+`rm`
+
+:   average number of rooms per dwelling.
+
+`age`
+
+:   proportion of owner-occupied units built prior to 1940.
+
+`dis`
+
+:   weighted mean of distances to five Boston employment centres.
+
+`rad`
+
+:   index of accessibility to radial highways.
+
+`tax`
+
+:   full-value property-tax rate per \$10,000.
+
+`ptratio`
+
+:   pupil-teacher ratio by town.
+
+`black`
+
+:   1000(��−0.63)21000(Bk−0.63)2 where ��Bk is the proportion of blacks by town.
+
+`lstat`
+
+:   lower status of the population (percent).
+
+`medv  (predictor variable)`
+
+:   median value of owner-occupied homes in \$1000s.
+
+```{r}
+library(MASS)
+library(dplyr)
+data(Boston)
+#mean(Boston$medv)
+```
+
+## correlation
+
+```{r}
+# correlation analysis
+# Calculate correlations
+correlations <- cor(Boston)
+# Correlation of predictors with the target variable 'medv'
+correlations_with_target <- correlations[, "medv"]
+print(correlations_with_target)
+
+## conclusion rm, ptratio, lstat have the strongest correlations
+
+```
+
+## random forest
+
+```{r}
+library(randomForest)
+
+# Train a Random Forest model to predict 'medv'
+rf_model <- randomForest(medv ~ ., data = Boston)
+
+# Print feature importance
+values <- (rf_model$importance)
+
+
+values_df <- as.data.frame(values)
+
+# Sort by '%IncMSE' in descending order using dplyr
+sorted_values <- values_df %>%
+  arrange(desc(IncNodePurity))
+
+# Print the sorted feature importance
+print(sorted_values)
+
+
+## how much each predictor contributes to reducing the impurity of the model. Here's how to interpret the results:
+
+## rm and lstat are the most important
+```
+
+## stepwise regression
+
+```{r}
+library(MASS)
+
+# Perform stepwise regression
+stepwise_model <- stepAIC(lm(medv ~ ., data = Boston), direction = "both")
+summary(stepwise_model)
+```
+
+## fitting the regression models
+
+```{r}
+
+boston_clean <- Boston 
+  
+
+model1 <- lm(medv ~ ., data = boston_clean)
+model3 <- lm(medv ~ crim + zn + chas + nox + rm + dis + rad + tax + ptratio + 
+    black + lstat, data = boston_clean)
+model2 <- lm(medv ~ lstat + rm, data = boston_clean)
+
+summary(model1)
+summary(model2)
+summary(model3)
+```
+
+## KNN model 1
+
+```{r}
+# Load necessary libraries
+# Load necessary libraries
+library(caret)
+
+## entire model
+
+# Split the data into training and validation sets (60% for training, 40% for validation)
+#set.seed(123)
+myIndex <- createDataPartition(boston_clean$medv, p = 0.6, list = FALSE)
+trainSet <- boston_clean[myIndex, ]
+validationSet <- boston_clean[-myIndex, ]
+
+# Define control parameters for training (10-fold cross-validation)
+myCtrl <- trainControl(method = "cv", number = 10)  # 10-fold cross-validation
+
+# Define a grid of k values to tune
+myGrid <- expand.grid(.k = 1:10)  # Test k values from 1 to 10
+
+# Train the kNN regression model
+KNN_fit <- train(medv ~ ., data = trainSet, method = "knn", trControl = myCtrl, tuneGrid = myGrid)
+
+# Print kNN model results (shows the best k and RMSE for each k value tested)
+print(KNN_fit)
+
+# Predictions on the validation set
+KNN_Pred <- predict(KNN_fit, newdata = validationSet)
+
+# Evaluate the regression model using RMSE
+rmse <- sqrt(mean((validationSet$medv - KNN_Pred)^2))
+cat("Root Mean Squared Error (RMSE):", rmse, "\n")
+
+
+
+
+
+
+
+```
+
+## KNN model 2
+
+```{r}
+## my model
+
+# Train the kNN regression model using only 'rm' and 'lstat' predictors
+KNN_fit <- train(medv ~ rm + lstat, data = trainSet, method = "knn", trControl = myCtrl, tuneGrid = myGrid)
+
+# Print kNN model results
+print(KNN_fit)
+
+# Predictions on the validation set
+KNN_Pred <- predict(KNN_fit, newdata = validationSet)
+
+# Evaluate the regression model using RMSE
+rmse <- sqrt(mean((validationSet$medv - KNN_Pred)^2))
+cat("Root Mean Squared Error (RMSE):", rmse, "\n")
+```
+
+## KNN model 3
+
+```{r}
+## other model
+
+# Train the kNN regression model using other predictors
+KNN_fit <- train(medv ~ crim + zn + chas + nox + rm + dis + rad + tax + ptratio + 
+    black + lstat , data = trainSet, method = "knn", trControl = myCtrl, tuneGrid = myGrid)
+
+# Print kNN model results
+print(KNN_fit)
+
+# Predictions on the validation set
+KNN_Pred <- predict(KNN_fit, newdata = validationSet)
+
+# Evaluate the regression model using RMSE
+rmse <- sqrt(mean((validationSet$medv - KNN_Pred)^2))
+cat("Root Mean Squared Error (RMSE):", rmse, "\n")
+```
+
+## Conclusion
+
+3 models-
+
+model 1- all predictors,
+
+model 2- my model (chosen from random forest, and correlations)
+
+model 3 - stepwise regression
+
+when fitting models -\>
+
+model 1 -\> 4.75 SSE, 73% R\^2
+
+model 2 -\> 5.54 SSE, 64% R\^2
+
+model 3 -\> 4.74, 74% R\^2
+
+after KNN -\>
+
+model 1 -\> 5.81 MSE, 52% R\^2
+
+model 2 -\> 4.14 MSE, 74% R\^2
+
+model 3 -\> 5.94 MSE, 56% R\^2
+
+model 2 best based on RMSE and R\^2 from KNN
+
+model 3- fits training data very well but includes noise and fluctuations that aren't respresentive of underlying pattern (overfitting). While it has lower error on training data, does not guarantee good performance on validation set.
+
+model 1- more predictors but captures higher complexity
+
+common trade-off in machine learning and statistical modeling: a model that fits the training data too closely (overfitting) often ends up performing worse on new, unseen data
+
+more info on KNN:
+
+#Train the model using cross-validation (10-fold in your case) to prevent overfitting and to estimate the model's performance more reliably.
+
+#Tune the k hyperparameter, which determines how many neighbors the model will consider when making predictions. This is done by testing multiple values of k (from 1 to 10) and selecting the optimal value based on the lowest Root Mean Squared Error (RMSE).
+
+#The train() function trains a k-Nearest Neighbors regression model to predict the medv (Median Value of Owner-Occupied Homes) using all other variables as predictors.
+
+#It evaluates the performance of the model for each k value from the grid myGrid (e.g., testing k values between 1 and 10).
+
+#It uses 10-fold cross-validation to estimate the model's accuracy and helps identify the best k value by evaluating the model’s performance (e.g., RMSE) for each fold and each k.
