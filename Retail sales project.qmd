@@ -1,0 +1,181 @@
+---
+title: "lecture 15"
+format: html
+editor: visual
+---
+
+## background
+
+which time series model predicts retail sales in Queensland the best?
+
+time series model needs to accurately capture trend and seasonality. Based on the ACF plots there is significant trend and stationary.
+
+First look at ETS damped vs non tamped and compare RMSE
+
+check to see residuals to see if it accurately captures pattern and is reduced to white noise
+
+Then cross validation: train model w
+
+first iteration:1-36 observations then test the model on next 3 observation.
+
+second iteration: 4-39 observations, forecast 40, 41, 42.
+
+third iteration: 7-42, forecast 43, 44, 45.
+
+iterations = (total observations - initial training size)/step size = (31995-36)/3 = 10653
+
+total \# of iterations = iterations for rolling window (fold) \* \# of models = 10653/5 = 53,265
+
+## part 1 - examining original data
+
+```{r}
+library(dplyr)
+library(fpp3)
+data(aus_retail)
+set.seed(1)
+myseries <- aus_retail |>
+filter(`Series ID` == sample(aus_retail$`Series ID`, 1))
+
+myseries |> autoplot(Turnover) 
+myseries |>
+  gg_season() # see each year's seasonality separately, increasing trend (1991 below and 2016 on top)
+
+myseries |>
+  gg_subseries(Turnover)
+
+myseries |>
+  gg_lag(Turnover, lags=1:24)
+
+acf(myseries$Turnover)
+
+```
+
+## part 2 - creating potential forecasts
+
+chose ETS and damped ETS model (MAM) based on the graph. Shows multiplicative seasonality. matched seasonality with error. Trend is visible as well.
+
+```{r}
+fit <- myseries |>
+model(
+hw = ETS(Turnover ~ error("M") + trend("A") + season("M")),
+hwdamped = ETS(Turnover ~ error("M") + trend("Ad") + season("M"))
+)
+fc <- fit |> forecast(h = 36)
+fc |> autoplot(myseries)
+
+
+```
+
+## part 3 - accuracy of these forecasts (comparing RMSE)
+
+```{r}
+accuracy(fit)
+```
+
+D.  
+
+```{r}
+#fit[,"hwdamped"] |> 
+#  gg_tsresiduals()
+
+
+
+```
+
+## part 5 - Training/test datasets
+
+```{r}
+myseries <- aus_retail |>
+filter(`Series ID` == sample(aus_retail$`Series ID`, 1)) |>
+mutate(train = Month < yearmonth("2016 Dec"))
+
+
+## plot training and test in different colors
+myseries |> ggplot(aes(x = Month, y = Turnover, col = train)) +
+  
+geom_line() +
+labs(y = "Turnover (million $AUD)", x = "Time (Years)",
+title = myseries$Industry[1],
+subtitle = myseries$State[1])
+
+# train blue, test red
+```
+
+## part 5 - see how well training data sets predict test data (compare RMSE's)
+
+```{r}
+fit <- myseries |>
+filter(train) |> # same as filter(Month < yearmonth("2016 Dec")) |>
+model(
+hw = ETS(Turnover ~ error("M") + trend("A") + season("M")),
+hwdamped = ETS(Turnover ~ error("M") + trend("Ad") + season("M"))
+)
+fit |> accuracy()
+```
+
+## part 6 - plot the forecast for final two years based on training set
+
+```{r}
+fc <- fit |> forecast(h = 25)
+fc |> autoplot(myseries |> filter(train))
+```
+
+## zoomed in for part 6
+
+```{r}
+fc <- fit |> forecast(h = 25)
+fc |> autoplot(myseries |>
+filter(Month >= yearmonth("2016 Dec")))
+
+
+```
+
+## part 7 - Cross Validation (may take a while to run) 
+
+```{r}
+# set up data for cross-validation
+
+myseries_cv <-myseries |>
+slice(1:(n() - 3)) |> ## hold out 3 to forecast
+stretch_tsibble(.init = 36, .step = 3) #first 36 observations, increment by 3 
+
+
+# iterations = (total observations - initial training size)/step size = (31995-36)/3 = 10653 
+
+# total # of iterations = iterations for rolling window (fold) * # of models = 10653/5 = 53,265
+
+
+```
+
+```{r}
+myseries_cv |>
+model(
+hw = ETS(Turnover ~ error("M") + trend("A") + season("M")),
+hwdamped = ETS(Turnover ~ error("M") + trend("Ad") + season("M")),
+snaive = SNAIVE(Turnover),
+log_ets = ETS(log(Turnover)),
+stl = decomposition_model(STL(log(Turnover)), ETS(season_adjust))
+) |>
+forecast(h = 3) |> # 3 steps ahead
+accuracy(myseries)
+
+
+# train model w 1-36 observations then test the model on next 3 observation
+ 
+# second iteration: 4-39 observations, forecast 40, 41, 42
+
+# third iteration: 7-42, forecast 43, 44, 45
+```
+
+```{r}
+#unique(aus_retail$State)
+#unique(aus_retail$Industry)
+#unique()
+
+```
+
+## conclusion
+
+we can see which models are performing the best by comparing the RMSE's. In parts 2 and 3 we created forecasts for two models and compared the accuracy statistics. we're seeing how well the observed values match the fitted values. In part 5, we are splitting the data into training and testing based on data prior to 2016 Dec and seeing how well the training data predicts the testing data. In part 6, we are repeating subsets of the training and testing data over and over in a rolling window to calculate the performance metrics.
+
+credits to <https://otexts.com/fpp3/>
