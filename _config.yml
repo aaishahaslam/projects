@@ -1,1 +1,16 @@
 remote_theme: pmarsceill/just-the-docs
+# Site settings
+title: "My Website"
+
+# Navigation settings
+just_the_docs:
+  nav_order: 1
+  nav:
+    - title: "Home"
+      url: "/"
+    - title: "Documentation"
+      children:
+        - title: "Getting Started"
+          url: "/getting-started"
+        - title: "Examples"
+          url: "/examples"
