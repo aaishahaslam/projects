@@ -1,17 +1,24 @@
 remote_theme: pmarsceill/just-the-docs
+title: "Projects"
 
-# Site settings
-title: "My Website"
-
-# Navigation settings
+# Sidebar settings
 just_the_docs:
   nav_order: 1
-  nav:
-    - title: "Home"
-      url: "/"
-    - title: "Documentation"
-      children:
-        - title: "Getting Started"
-          url: "/getting-started"
-        - title: "Examples"
-          url: "/examples"
+  has_toc: true
+  show_navigation: true  # Ensures the sidebar is always visible
+  aux_links:
+    "GitHub Repository": "https://github.com/aaishahaslam/projects"
+
+# Sidebar navigation (Fix indentation and structure)
+nav:
+  - title: "Home"
+    url: "/"
+  - title: "Projects"
+    children:
+      - title: "Retail Sales Project"
+        url: "/docs/Retail.sales.project.html"
+      - title: "Boston Housing Prices"
+        url: "/docs/boston.housing.prices.CODE.qmd"
+      - title: "Boston Details (PDF)"
+        url: "/docs/boston.details.project.pdf"
+
