@@ -1,19 +1,17 @@
 remote_theme: pmarsceill/just-the-docs
-title: "Projects"
 
-# Enable the sidebar
+# Site settings
+title: "My Website"
+
+# Navigation settings
 just_the_docs:
   nav_order: 1
-  has_toc: true
-  aux_links:
-    "GitHub Repository": "https://github.com/aaishahaslam/projects"
-
-# Sidebar navigation
-nav_sort: case_insensitive
-nav:
-  - title: "Home"
-    url: "/"
-  - title: "Projects"
-    children:
-      - title: "Retail Sales Project"
-        url: "/docs/Retail.sales.project.html"
+  nav:
+    - title: "Home"
+      url: "/"
+    - title: "Documentation"
+      children:
+        - title: "Getting Started"
+          url: "/getting-started"
+        - title: "Examples"
+          url: "/examples"
