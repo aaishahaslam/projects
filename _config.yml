@@ -10,7 +10,5 @@ just_the_docs:
       url: "/"
     - title: "Documentation"
       children:
-        - title: "Getting Started"
-          url: "/getting-started"
-        - title: "Examples"
-          url: "/examples"
+        - title: "Retail Sales Project"
+          url: "/docs/Retail.sales.project.html"
