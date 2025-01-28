@@ -1,14 +1,15 @@
 remote_theme: pmarsceill/just-the-docs
-# Site settings
-title: "Aaishah's Website"
+title: "Projects"
 
-# Navigation settings
+# Sidebar navigation
 just_the_docs:
   nav_order: 1
-  nav:
-    - title: "Home"
-      url: "/"
-    - title: "Documentation"
-      children:
-        - title: "Retail Sales Project"
-          url: "/docs/Retail.sales.project.html"
+  has_toc: true
+  aux_links:
+    "GitHub Repository": "https://github.com/aaishahaslam/projects"
+
+nav:
+  - title: "Home"
+    url: "/"
+  - title: "Retail Sales Project"
+    url: "/docs/Retail.sales.project.html"
