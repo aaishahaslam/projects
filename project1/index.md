@@ -7,6 +7,6 @@ nav_order: 2
 
 This is a placeholder page for Project 1.
 
-[View Full Project Report](https://aaishahaslam.github.io/projects_/project1/Retail.sales.project.html)
+![Turnover Plot](./images/unnamed-chunk-1-1.png)
 
 
