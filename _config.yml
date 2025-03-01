@@ -1,6 +1,6 @@
 title: "Aaishah's Projects"
 description: "input words here"
-theme: "just-the-docs"
+remote_theme: "just-the-docs/just-the-docs"
 
 # Sidebar navigation order
 nav_order: 1
