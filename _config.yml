@@ -6,7 +6,7 @@ remote_theme: "just-the-docs/just-the-docs"
 nav_order: 1
 
 # Enable search functionality
-search_enabled: true
+search_enabled: false
 
 # GitHub Pages settings
 baseurl: "/projects_"  # Change to match your repo name
