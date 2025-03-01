@@ -7,4 +7,4 @@ nav_order: 2
 
 This is a placeholder page for Project 1.
 
-<iframe src="project1.html" width="100%" height="800px" style="border:none;"></iframe>
+<iframe src="Retail.sales.project.html" width="100%" height="800px" style="border:none;"></iframe>
