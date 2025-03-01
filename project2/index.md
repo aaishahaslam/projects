@@ -1,5 +1,5 @@
 ---
-title: "Project 1"
+title: "Project 2"
 nav_order: 3
 ---
 
