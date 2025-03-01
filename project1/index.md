@@ -7,6 +7,6 @@ nav_order: 2
 
 This is a placeholder page for Project 1.
 
-![Turnover Plot](./images/unnamed-chunk-1-1.png)
+![Turnover Plot](./Retail.sales.project_files/images/unnamed-chunk-1-1.png)
 
 
