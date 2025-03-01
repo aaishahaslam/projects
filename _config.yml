@@ -29,3 +29,5 @@ nav:
         # work
 include:
   - project1/Retail.sales.project.html
+  - images/*
+
