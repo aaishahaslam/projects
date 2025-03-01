@@ -1,0 +1,13 @@
+title: "Aaishah's Projects"
+description: "input words here"
+theme: "just-the-docs"
+
+# Sidebar navigation order
+nav_order: 1
+
+# Enable search functionality
+search_enabled: true
+
+# GitHub Pages settings
+baseurl: "/projects_"  # Change to match your repo name
+url: "https://aaishahaslam.github.io"
