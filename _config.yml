@@ -28,6 +28,6 @@ nav:
         url: /project3
         # work
 include:
-  - project1/Retail.sales.project/Retail.sales.project.html
+  - project2/boston project.html
   - images/*
 
