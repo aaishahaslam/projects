@@ -37,9 +37,9 @@ placeholder
 
 placeholder
 
-![Plot 8](./Retail.sales.project_files/images/unnamed-chunk-8-1.png)
+![Plot 8](./Retail.sales.project_files/images/unnamed-chunk-7-1.png)
 
 placeholder
 
-![Plot 9](./Retail.sales.project_files/images/unnamed-chunk-9-1.png)
+![Plot 8](./Retail.sales.project_files/images/unnamed-chunk-8-1.png)
 
