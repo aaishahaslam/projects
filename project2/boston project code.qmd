@@ -1,0 +1,376 @@
+---
+title: "PROJECT BOSTON"
+format: html
+editor: visual
+code-fold: true
+---
+
+# **Boston Housing Prices ML Analysis**
+
+## Introduction
+
+This project examines the key factors influencing **Boston home prices** using **machine learning models (KNN algorithm, step-wise regression, random forest)**. The goal is to understand which factors drive **median home values (`medv`)** and to identify the **best predictive model**. We have 13 predictor variables to work with which can result in a large number of possible models. In this project, we will use a model with all 13 predictors (model 1), a model derived by analyzing correlations and random forest (model 2), and a model selected using step-wise regression (model 3). Then we'll measure the predictive accuracy of these models by creating training and test data sets, using the training data to predict the test data, and analyze the performance results.
+
+`crim  🚨`
+
+:   per capita crime rate by town.
+
+`zn  🏡`
+
+:   proportion of residential land zoned for lots over 25,000 sq.ft.
+
+`indus  🏭`
+
+:   proportion of non-retail business acres per town.
+
+`chas 🌊`
+
+:   Charles River dummy variable (= 1 if tract bounds river; 0 otherwise).
+
+`nox  🌫️`
+
+:   nitrogen oxides concentration (parts per 10 million).
+
+`rm  🏠`
+
+:   average number of rooms per dwelling.
+
+`age 🏚️`
+
+:   proportion of old owner-occupied units built prior to 1940.
+
+`dis 🚉`
+
+:   weighted mean of distances to five Boston employment centres.
+
+`rad 🛣️`
+
+:   index of accessibility to radial highways.
+
+`tax 💰`
+
+:   full-value property-tax rate per \$10,000.
+
+`ptratio 📚`
+
+:   pupil-teacher ratio by town.
+
+`black ⚖️`
+
+:   1000(��−0.63)21000(Bk−0.63)2 where ��Bk is the proportion of blacks by town.
+
+`lstat 📉`
+
+:   lower status of the population (percent).
+
+```{r, message=FALSE,echo=FALSE, warning=FALSE}
+
+library(MASS)
+library(dplyr)
+data(Boston)
+
+```
+
+## Data Inspection
+
+```{r, message=FALSE,echo=FALSE, warning=FALSE}
+
+# correlation analysis
+# Calculate correlations
+correlations <- cor(Boston)
+# Correlation of predictors with the target variable 'medv'
+correlations_with_target <- correlations[, "medv"]
+print(correlations_with_target)
+
+## conclusion rm, ptratio, lstat have the strongest correlations
+mean(Boston$medv)
+
+```
+
+The associations between predictor factors and medv were derived using a correlation matrix:\
+\
+From the results above, higher poverty rates are linked to lower property values, as seen by the highest negative connection (**-0.7377**) between **medv** and **lstat** (% of lower-status individuals).\
+The highest positive correlation between **medv** and **rm** (number of rooms per house) is **0.6954**, indicating that larger homes are typically more costly. Higher pollution and poorer education have a negative effect on home prices, according to other variables that also have moderately negative correlations with **medv**, including **nox** (pollution). The **mean** (average) home price (**medv**) in the dataset is **\$22,532.81** (\$22.53K). This mean was taken in 1978. Next we'll use random forest to explore the most important factors to housing prices.
+
+## Random Forest
+
+```{r, message=FALSE,echo=FALSE, warning=FALSE}
+library(randomForest)
+
+# Train a Random Forest model to predict 'medv'
+rf_model <- randomForest(medv ~ ., data = Boston)
+
+# Print feature importance
+values <- (rf_model$importance)
+
+
+values_df <- as.data.frame(values)
+
+# Sort by '%IncMSE' in descending order using dplyr
+sorted_values <- values_df %>%
+  arrange(desc(IncNodePurity))
+
+# Print the sorted feature importance
+print(sorted_values)
+
+
+## how much each predictor contributes to reducing the impurity of the model. Here's how to interpret the results:
+
+## rm and lstat are the most important
+```
+
+A decision tree is a model that resembles a flowchart that divides data into smaller groups according to feature values in order to make judgments. The objective is to optimize homogeneity, or purity, in each split, which means that the target variable's values are comparable in each group. In **Random Forest**, **IncNodePurity (Increase in Node Purity)** is a measure of **feature importance**. It tells us **how much a variable helps in reducing impurity (variance) in the decision trees**.\
+
+There are **nodes** in every tree:\
+\
+Root Node 🌱 → Based on the most crucial feature, the initial decision split.\
+Internal Nodes 🔗 → Decision points in between that further divide the data.\
+Leaf Nodes 🍂→ The ultimate output, where predictions are produced
+
+#### How it works:
+
+-   Each decision tree in the forest **splits the data at nodes** based on different features.
+
+-   The purity of each node is measured using **Mean Squared Error (MSE) for regression**. (If splitting on a variable reduces **MSE by a large amount**, it’s **a good split**)
+
+-   **Higher IncNodePurity** means the feature is more useful in **splitting data and reducing error**.
+
+According to a random forest model's IncNodePurity measure, the most significant predictors for medv are **lstat** (poverty rate) and **rm** (number of rooms), which validate the correlation findings.\
+Additional important indicators include **ptratio** (pupil-teacher ratio), **nox** (pollution), and **dis** (distance to job centers), suggesting that environmental and educational factors are important determinants of home values. **Zn** (the percentage of residential property allocated for big lots) and **chas** (closeness to the Charles River) are less significant factors.
+
+## Stepwise Regression
+
+```{r, message=FALSE,echo=FALSE, warning=FALSE}
+library(MASS)
+
+# Perform stepwise regression
+stepwise_model <- stepAIC(lm(medv ~ ., data = Boston), direction = "both")
+summary(stepwise_model)
+```
+
+#### Analysis
+
+The most optimal predictors in a regression model can be found using the feature selection method known as **stepwise regression.** By automating the variable selection procedure, it guarantees that the model only contains the most significant predictors.\
+\
+**Statistical significance (p-values) and model performance (AIC/BIC/R2)** determine whether variables are added or removed in stepwise regression.\
+\
+**Different Stepwise Regression Types:**\
+**Forward Selection**: If variables enhance the model, add them one at a time after starting with none.\
+**Backward Elimination:** Begin by removing each variable in turn, starting with the least important.\
+**Stepwise selection:** is a combination of the two methods; variables are included if they are helpful and removed if they later prove to be irrelevant.\
+\
+In this instance, we utilized **Stepwise Selection** as it's most flexible and can prevent overfitting.
+
+#### Process: 
+
+**Step 1:** Start with All Variables
+
+The full model includes all **13 predictors**. The A**kaike Information Criterion (AIC)** is **1589.64,** which measures model quality (lower = better).
+
+**medv**=β0​+β1​crim+β2​zn+β3​indus+β4​chas+β5​nox+β6​rm+β7​age+β8​dis+β9​rad+β10​tax+β11​ptratio+β12​black+β13​lstat+ϵ
+
+**Step 2:** Remove Least Important Variable
+
+The step-by-step procedure evaluates the **contribution** of each variable. **Removing** a variable is done if it has no discernible effect on the accuracy of the model.
+
+The **first** to be **eliminated** was **age** (old houses) due to the following: P-value (**not statistically significant**) = **0.958.** Didn't improve **R\^2** much better. **AIC decreased**, indicating a better model fit, to **1587.7.**
+
+**Step 3:** Remove Other Unimportant Variables
+
+**indus** (non-retail land proportion) was removed because: **p-value = 0.738** (too high). **AIC** improved to **1585.8,** meaning the model became simpler without losing accuracy.
+
+At this point, we are left with the **11** strongest variables with **indus** and **age** removed. (There can be other weak predictors but they were kept as they improve the model slightly).
+
+🔹 **Final Adjusted R² = 0.7348**\
+🔹 **Final AIC = 1585.8**
+
+## fitting the regression models
+
+```{r, message=FALSE,echo=FALSE, warning=FALSE}
+
+boston_clean <- Boston 
+  
+
+model1 <- lm(medv ~ ., data = boston_clean)
+model3 <- lm(medv ~ crim + zn + chas + nox + rm + dis + rad + tax + ptratio + 
+    black + lstat, data = boston_clean)
+model2 <- lm(medv ~ lstat + rm, data = boston_clean)
+
+summary(model1)
+summary(model2)
+summary(model3)
+```
+
+#### Interpretation
+
+**Model 1** (all predictors):
+
+-   **Adjusted R² = 0.7338** → Explains **73.38% of the variance** in home prices.
+
+-   **Residual Standard Error (RSE) = 4.745** → The average error in home price predictions is **\$4,745**.
+
+-   **F-statistic = 108.1, p \< 2.2e-16** → The model is statistically significant, but includes some statistically insignificant predictors (which model 3 removes)
+
+**Model 2:** (select 2 predictors)
+
+-   **Adjusted R² = 0.6371** → Explains **63.71% of the variance** in home prices.
+
+-   **Residual Standard Error = 5.54** → Higher error than Model 1.
+
+-   **F-statistic = 444.3, p \< 2.2e-16** → The model is significant.
+
+**Model 3:** (automatically selected 11 predictors)
+
+-   **Adjusted R² = 0.7348** → Slightly better than Model 1.
+
+-   **Residual Standard Error = 4.736** → Lower than Model 1 (better predictive accuracy).
+
+-   **F-statistic = 128.2, p \< 2.2e-16** → Strong significance
+
+Model 3 so far has the highest explained variance and lowest error.
+
+#### **Why we can't conclude model 3 is best based on the given ouput:**
+
+-   Standard Error (SE) and R2 (coefficient of determination) are helpful metrics for assessing how well a model fits **training** data, but they **don't** reveal how well the model will work with **new, unseen data**, **which is what's important for creating predictions.** (For example, a highly complex model can have an R\^2 have 90% and a low standard error but it **fails** to predict accurately because the model **overfits** and captures noise instead of true relationships.
+
+-    For this reason, before deciding on the optimal model, we require **KNN** or similar validation technique to test how well the model predicts unseen data.
+
+## KNN model 1
+
+```{r, message=FALSE,echo=FALSE, warning=FALSE}
+
+# Load necessary libraries
+# Load necessary libraries
+library(caret)
+
+## entire model
+
+# Split the data into training and validation sets (60% for training, 40% for validation)
+#set.seed(123)
+myIndex <- createDataPartition(boston_clean$medv, p = 0.6, list = FALSE)
+trainSet <- boston_clean[myIndex, ]
+validationSet <- boston_clean[-myIndex, ]
+
+# Define control parameters for training (10-fold cross-validation)
+myCtrl <- trainControl(method = "cv", number = 10)  # 10-fold cross-validation
+
+# Define a grid of k values to tune
+myGrid <- expand.grid(.k = 1:10)  # Test k values from 1 to 10
+
+# Train the kNN regression model
+KNN_fit <- train(medv ~ ., data = trainSet, method = "knn", trControl = myCtrl, tuneGrid = myGrid)
+
+# Print kNN model results (shows the best k and RMSE for each k value tested)
+print(KNN_fit)
+
+# Predictions on the validation set
+KNN_Pred <- predict(KNN_fit, newdata = validationSet)
+
+# Evaluate the regression model using RMSE
+rmse <- sqrt(mean((validationSet$medv - KNN_Pred)^2))
+cat("Root Mean Squared Error (RMSE):", rmse, "\n")
+
+
+
+
+
+
+
+```
+
+## KNN model 2
+
+```{r, message=FALSE,echo=FALSE, warning=FALSE}
+## my model
+
+# Train the kNN regression model using only 'rm' and 'lstat' predictors
+KNN_fit <- train(medv ~ rm + lstat, data = trainSet, method = "knn", trControl = myCtrl, tuneGrid = myGrid)
+
+# Print kNN model results
+print(KNN_fit)
+
+# Predictions on the validation set
+KNN_Pred <- predict(KNN_fit, newdata = validationSet)
+
+# Evaluate the regression model using RMSE
+rmse <- sqrt(mean((validationSet$medv - KNN_Pred)^2))
+cat("Root Mean Squared Error (RMSE):", rmse, "\n")
+```
+
+## KNN model 3
+
+```{r, message=FALSE,echo=FALSE, warning=FALSE}
+
+## other model
+
+# Train the kNN regression model using other predictors
+KNN_fit <- train(medv ~ crim + zn + chas + nox + rm + dis + rad + tax + ptratio + 
+    black + lstat , data = trainSet, method = "knn", trControl = myCtrl, tuneGrid = myGrid)
+
+# Print kNN model results
+print(KNN_fit)
+
+# Predictions on the validation set
+KNN_Pred <- predict(KNN_fit, newdata = validationSet)
+
+# Evaluate the regression model using RMSE
+rmse <- sqrt(mean((validationSet$medv - KNN_Pred)^2))
+cat("Root Mean Squared Error (RMSE):", rmse, "\n")
+```
+
+#### Information on KNN Algorithm: 
+
+KNN is an instance-based, non-parametric learning algorithm that may be applied to both regression and classification problems. We use KNN because it assumes a non linear relationship in data (regression assumes linear which may not always be the case).\
+\
+**KNN in Regression:**
+
+1.  Train the model using **cross-validation** (10-fold in this case) to prevent overfitting and to estimate the model's **performance** more **reliably**.
+2.  Tune the k hyperparameter, **(This is the number of neighbors used in the KNN algorithm to predict the output).** This is done by testing multiple values of k (from 1 to 10) and selecting the optimal value based on the lowest **Root Mean Squared Error (RMSE).**
+3.  The train() function trains a k-Nearest Neighbors regression model to **predict** the medv (Median Value of Owner-Occupied Homes) using all other variables as predictors.
+4.  It evaluates the **performance** of the model for each k value from the grid myGrid (e.g., testing k values between 1 and 10).
+5.  It uses 10-fold cross-validation to estimate the **model's accuracy** and helps identify the best k value by evaluating the **model’s performance** (e.g., RMSE) for each fold and each k.
+
+**How K works:** \
+To create a prediction, the algorithm considers the k nearest data points, called neighbors. It then determines the separation between two points. The most widely used approach is Euclidean Distance: The points are increasingly identical the closer they are to one another. The mean of the k-nearest neighbors serves as the forecast in KNN regression: The model finds the k closest houses and predicts median home value (`medv`) as the average price of those neighbors.
+
+### **10-Fold Cross-Validation:**
+
+1️⃣ **The dataset is randomly split into 10 equal-sized folds.** (If we have 306 samples each fold contains approx 30 samples)\
+2️⃣ **The model is trained on 9 folds** and **tested on the remaining 1 fold**.\
+3️⃣ **This process repeats 10 times**, each time using a different fold for testing.\
+4️⃣ **The final performance metric (e.g., RMSE, accuracy) is the average of all 10 test runs**.
+
+**Why do we need cross-validation in KNN?**
+
+-   **Helps find the best `k` for KNN** (avoids overfitting/underfitting).
+
+#### Interpretation of Results
+
+(results will be slightly different each time code is ran due to randomization of cross validation)
+
+Model 1 (all predictors):
+
+🔹 **Final k chosen: `k=2` (lowest RMSE of 6.23)**\
+🔹 **R² = 0.53**, meaning the model explains **53% of variance** in house prices.\
+🔹 **RMSE = 7.30**, meaning the average price prediction error is **\$7,300**.
+
+Model 2 (chosen model) \
+🔹 **Final chosen `k=6` (smallest RMSE of 4.43)**\
+🔹 **R² = 0.74**, meaning this model explains **74% of the variance** in home prices.\
+🔹 **RMSE = 4.43**, meaning an average price prediction error of **\$4,430**.
+
+Model 3 (automated model w 11 predictors)
+
+🔹 **Final chosen `k=2` (smallest RMSE of 6.09)**\
+🔹 **R² = 0.56**, meaning this model explains **56% of price variance**.\
+🔹 **RMSE = 6.41**, meaning an average price prediction error of **\$6,410**.
+
+## Conclusion
+
+**The best overall model is KNN model 2 with `rm (# of rooms)` + `lstat` (population of lower status %)(RMSE = 4.43, R² = 0.74). Because the results are different from the linear regression of rm + lstat, this suggests that the relationship between home prices (`medv`) and predictors is slightly non-linear.**
+
+**74% of variance explained is strong**. **RMSE of 4.43 is reasonable—errors are in the range of \$4,430 on average**
+
+**Though model 3 (11 predictors) had a higher R\^2 and lower se when fitting the model a model that fits the training data too closely (over fitting) often ends up performing worse on new, unseen data.**
+
+## 
