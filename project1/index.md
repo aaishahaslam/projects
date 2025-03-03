@@ -7,20 +7,39 @@ nav_order: 2
 
 This is a placeholder page for Project 1.
 
-![Turnover Plot](./Retail.sales.project_files/images/unnamed-chunk-1-1.png)
+![Plot 1](./Retail.sales.project_files/images/unnamed-chunk-1-1.png)
 
 ddd
 
-![Turnover Plot](./Retail.sales.project_files/images/unnamed-chunk-1-2.png)
+![Plot 2](./Retail.sales.project_files/images/unnamed-chunk-1-2.png)
 
 dd
 
 
-![Turnover Plot](./Retail.sales.project_files/images/unnamed-chunk-1-3.png)
+![Plot 3](./Retail.sales.project_files/images/unnamed-chunk-1-3.png)
 
 
 
 d
-![Turnover Plot](./Retail.sales.project_files/images/unnamed-chunk-1-4.png)
+![Plot 4](./Retail.sales.project_files/images/unnamed-chunk-1-4.png)
 
+
+
+![Plot 5](./Retail.sales.project_files/images/unnamed-chunk-1-5.png)
+
+placeholder
+
+![Plot 6](./Retail.sales.project_files/images/unnamed-chunk-2-1.png)
+
+
+
+![Plot 7](./Retail.sales.project_files/images/unnamed-chunk-5-1.png)
+
+placeholder
+
+![Plot 8](./Retail.sales.project_files/images/unnamed-chunk-8-1.png)
+
+placeholder
+
+![Plot 9](./Retail.sales.project_files/images/unnamed-chunk-9-1.png)
 
