@@ -79,5 +79,13 @@ drugs that are subject to proprietary restrictions. According to several article
 develop similar drugs to Dice Therapeutics and Eli Lilly, but the acquisition
 would allow them to access the proprietary technology Dice has developed.
 
+## Valuations
+40% premium paid
+$LLY spend $7.2 billion (per 10k report)on R&D
+Spent $2.4 billion, without premium valued LLY DICE $1.7 billion
+Assume valued added by DICE aprox. 1.7/4= $425 for first 4 years until drug passes phase III clinical trials
+Assuming drug is released onto market, DICE resources will be allocated to work on $ELY DC-806 and DC-852 pipelines.
+$LLY $1.9 billion in revenue for current immunology drug line
+Note: $LLY benefits greatly from tax credits due to high R&D costs
 
 
