@@ -88,6 +88,6 @@ Assuming drug is released onto market, DICE resources will be allocated to work 
 $LLY $1.9 billion in revenue for current immunology drug line
 Note: $LLY benefits greatly from tax credits due to high R&D costs
 
-[View Excel Sheet](dcf.html)
+[View Excel Sheet](dcf.htm)
 
 
