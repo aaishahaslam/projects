@@ -20,12 +20,14 @@ nav:
 
   - title: "Projects"
     children:
-      - title: "Project 1"
+      - title: "Retail Sales Prediction Time Series Project"
         url: /project1
-      - title: "Project 2"
+      - title: "Boston Housing Pricing Prediction ML Analysis"
         url: /project2
-      - title: "Project 3"
+      - title: "LLY Acquisition Analysis Project"
         url: /project3
+      - title: "Placeholder"
+        url: /project4
         # work
 include:
   - project2/boston project.html
