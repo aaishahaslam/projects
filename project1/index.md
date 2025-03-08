@@ -1,9 +1,9 @@
 ---
-title: "Project 1"
+title: "Retail Sales Prediction Time Series Project"
 nav_order: 2
 ---
 
-# Project 1
+# Retail Sales Prediction Time Series Project
 
 This is a placeholder page for Project 1.
 
