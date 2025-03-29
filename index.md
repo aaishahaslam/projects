@@ -12,6 +12,4 @@ Navigate using the sidebar to explore different sections.
 - Boston Housing Pricing Prediction ML Analysis (COMPLETE ✅)
 - LLY Acquisition Analysis Project
 - Cement Production Prediction Time Series Project
-
-
-Link to Github repo (source files): https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file
+Link to Github repo (source files): (https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file)
