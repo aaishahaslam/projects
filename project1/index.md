@@ -1,5 +1,5 @@
 ---
-title: "Retail Sales Prediction Time Series Project"
+title: "Retail Sales Forecasting Project"
 nav_order: 2
 ---
 
