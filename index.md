@@ -13,4 +13,4 @@ Navigate using the sidebar to explore different sections.
 - LLY Acquisition Analysis Project
 - Cement Production Prediction Time Series Project
 
-Link to Github repo (source files): https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file
+[Link to GitHub repo (source files)](https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file)
