@@ -3,13 +3,13 @@ title: "Retail Sales Forecasting Project"
 nav_order: 2
 ---
 
-# Retail Sales Prediction Time Series Project
+# **Retail Sales Prediction Time Series Project**
 
-Question: Which time series model best predicts retail sales in Queensland, Australia?
+## **Question: Which time series model best predicts retail sales in Queensland, Australia?**
 
-Method:
+## Method:
 
-Dataset Information:
+**Dataset Information:**
 
 State: The Australian state/territory (Australlian capital, New South Wales, Northern Territory, Queensland, Southern Australia, Tasmania, Victoria, Western Australia.
 
