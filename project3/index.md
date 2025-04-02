@@ -90,6 +90,6 @@ Note: $LLY benefits greatly from tax credits due to high R&D costs
 
 <iframe src="dcf.htm" width="100%" height="500px"></iframe>
 
-<iframe width="700" height="346" frameborder="0" scrolling="no" src="https://cpslo-my.sharepoint.com/personal/aaaslam_calpoly_edu/_layouts/15/Doc.aspx?sourcedoc={63e3b35e-2e36-4e74-9b0e-d773756cc6ea}&action=embedview&wdAllowInteractivity=False&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"></iframe>>
+<iframe width="1000" height="1000" frameborder="0" scrolling="no" src="https://cpslo-my.sharepoint.com/personal/aaaslam_calpoly_edu/_layouts/15/Doc.aspx?sourcedoc={63e3b35e-2e36-4e74-9b0e-d773756cc6ea}&action=embedview&wdAllowInteractivity=False&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"></iframe>>
 
 
