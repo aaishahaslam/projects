@@ -1,0 +1,271 @@
+---
+title: "retail sales in queensland australia"
+format: html
+editor: visual
+code-tools: false  
+execute:
+  echo: false  
+---
+
+## background
+
+which time series model best predicts retail sales in Queensland the best?
+
+time series model needs to accurately capture trend and seasonality. Based on the ACF plots there is significant trend and seasaonlity.
+
+First we look at ETS damped vs non damped models and compare RMSE
+
+check to see residuals to see if it accurately captures pattern and is reduced to white noise
+
+Then cross validation: train model w
+
+## part 1 - examining original data
+
+```{r, message=FALSE,echo=FALSE, warning=FALSE}
+library(dplyr)
+library(forecast)
+library(fpp3)
+data(aus_retail)
+set.seed(1)
+myseries <- aus_retail |>
+filter(`Series ID` == sample(aus_retail$`Series ID`, 1))
+
+m <- myseries |> autoplot(Turnover) 
+m
+myseries |>
+  gg_season() # see each year's seasonality separately, increasing trend (1991 below and 2016 on top)
+
+myseries |>
+  gg_subseries(Turnover)
+
+#myseries |>
+ # gg_lag(Turnover, lags=1:24)
+
+acf(myseries$Turnover)
+#unique(aus_retail$Industry)
+#unique(aus_retail$State)
+
+
+
+```
+
+Data: Australian retail trade turnover in \$Million AUD.
+
+Each series is uniquely identified using two keys:
+
+State: The Australian state/territory (Australlian capital, New South Wales, Northern Territory, Queensland, Southern Australia, Tasmania, Victoria, Western Australia.
+
+Industry: The industry of retail trade (cafes, takeout, pharmaceutical, clothing, newspaper/book, household goods, hardware, furniture, dept stores, liqor, footwear, electronic goods) is included in the dataset.
+
+From the dataset, we selected the state Queensland and the clothing industry due to personal interest.
+
+The first plot is a basic time series plot showing retail sales in Queensland for clothing from 1982 to 2020. Two key features we are looking for is trend and seasonality. There is a clear upward trend, and there are regular repeating peaks approx every 12 months indicating strong yearly seasonality. The seasonality appears multiplicative.
+
+Second plot shows retail sales in Queensland separated by year and month. 2011 and onwards sees the highest sales with the highest sales month being December.
+
+Third plot dives deeper into month and shows detailed variations between each month.
+
+The autocorrelation plot shows extremely strong temporal dependence which makes sense as we observed a trend and seasonality earlier. ACF plots show auto correlation (temporal dependence) meaning past values influence future values. Having trends mean there is a long term correlation across observations while having seasonality means there is cyclical time dependence.
+
+To create a model that can forecast, we need models that capture trend/seasonality so the autocorrelation plots show minimal temporal dependence (not seen right now). Another way is to difference the data to coerce stationary (meaning constant mean/variance over time).
+
+.
+
+## part 2 - creating potential forecasts
+
+Based on the graphs above, an exponential trend smoothing (ETS) model would be appropriate due to the trend and multiplicative seasonality present. ETS models incorporate error (additive or multiplicative), trend (none, additive, or damped), and seasonality (none, additive or multiplicative). This means there are 18 possible ETS models we can choose from.
+
+I am choosing ETS (M,A,M) and damped ETS model (M,Ad,M) based on the graph as it shows multiplicative seasonality, matched seasonality with residuals and trend is visible as well.
+
+The difference between the models lies in the trend, where ETS (M,A,M) assumes an aggressive trend over time while ETS model (M,Ad,M) assumes a dampening trend over time.
+
+```{r, echo=FALSE, fig.show='hold', fig.width=6, fig.height=4}
+
+fit <- myseries |>
+model(
+hw = ETS(Turnover ~ error("M") + trend("A") + season("M")),
+hwdamped = ETS(Turnover ~ error("M") + trend("Ad") + season("M"))
+)
+fc <- fit |> forecast(h = 36)
+fc |> autoplot(myseries)
+
+
+```
+
+hw= ETS(M,A,M)
+
+hwdamped= ETS(M,Ad,M)
+
+We see from the graph that hw forecasts are more aggressive than hwdamped. Next, we want to assess the accuracy of the fitted values to the observed values.
+
+```{r}
+myseries |> 
+  mutate(diff_log = difference(difference(log(Turnover)), lag = 12)
+  ) |> 
+  autoplot(diff_log)
+acf(diff_log)
+pacf(diff_log)
+```
+
+## part 3 - accuracy of these forecasts (comparing RMSE)
+
+```{r, echo=FALSE, fig.show='hold', fig.width=6, fig.height=4}
+
+accuracy(fit)
+```
+
+The RMSE's are pretty similar with the hw model having a slightly lower RMSE. However, this is not a true measure of forecast performance, this only assesses how well the model explains the already observed data. Next step is to compute true out of sample forecast accuracy by comparing predicted values to data the model has not seen.
+
+```{r, echo=FALSE, fig.show='hold', fig.width=6, fig.height=4}
+
+#fit[,"hwdamped"] |> 
+#  gg_tsresiduals()
+
+
+
+```
+
+## part 5 - Training/test datasets
+
+```{r, echo=FALSE, fig.show='hold', fig.width=6, fig.height=4}
+
+myseries <- aus_retail |>
+filter(`Series ID` == sample(aus_retail$`Series ID`, 1)) |>
+mutate(train = Month < yearmonth("2016 Dec"))
+
+
+## plot training and test in different colors
+myseries |> ggplot(aes(x = Month, y = Turnover, col = train)) +
+  
+geom_line() +
+labs(y = "Turnover (million $AUD)", x = "Time (Years)")
+
+# train blue, test red
+```
+
+This graph describes what we needed to do in the previous exercept. We split the data into training (blue) and the data it will forecast (red). All observations before 2016 Dec are training data and everything after 2016 Dec is test data. In other words, the model will use the training data to try to predict the test data and compare it to the actual observed values and see how much of a difference there is.
+
+## part 5 - see how well training data sets predict test data (compare RMSE's)
+
+```{r, echo=FALSE, fig.show='hold', fig.width=6, fig.height=4}
+
+fit <- myseries |>
+filter(train) |> # same as filter(Month < yearmonth("2016 Dec")) |>
+model(
+hw = ETS(Turnover ~ error("M") + trend("A") + season("M")),
+hwdamped = ETS(Turnover ~ error("M") + trend("Ad") + season("M"))
+)
+fit |> accuracy()
+```
+
+Now the hw damped model has a lower RMSE than the hw model. Though the hw model was able to reproduce the same data better, it failed in predictive ability of future values compared to hw damped which is why it was essential to run this test.
+
+## part 6 - plot the forecast for final two years based on training set
+
+```{r, echo=FALSE, fig.show='hold', fig.width=6, fig.height=4}
+
+fc <- fit |> forecast(h = 25)
+fc |> autoplot(myseries |> filter(train))
+```
+
+These are the forecasts for the final 2 years based on the training dataset.
+
+## zoomed in for part 6
+
+```{r, echo=FALSE, fig.show='hold', fig.width=6, fig.height=4}
+
+fc <- fit |> forecast(h = 25)
+fc |> autoplot(myseries |>
+filter(Month >= yearmonth("2016 Dec")))
+
+
+```
+
+These are the forecasts for the final 2 years based on the training dataset.
+
+## part 7 - Cross Validation (may take a while to run)
+
+The limitation to the above analysis is that one train-test split only gives us one snapshot for one time period. It doesn't reflect how the model will perform in different time periods or in different conditions. Because of this cross validation is necessary.
+
+Specifically rolling window cross validation will train the model on increasing windows and then test on the next 3 months and evaluate performance over each time. Then repeats.
+
+Important note: I added auto arima model and SNAIVE to the cross validation. SNAIVE is a simplified time series benchmark model we're using to compare to make sure we're actually improving forecast accuracy. ARIMA is another common time series model. So now we are comparing 4 models predictive abilities.
+
+first iteration:1-36 observations then test the model on next 3 observation.
+
+second iteration: 4-39 observations, forecast 40, 41, 42.
+
+third iteration: 7-42, forecast 43, 44, 45. and so on ....
+
+iterations = (total observations - initial training size)/step size = (31995-36)/3 = 10653
+
+total \# of iterations = iterations for rolling window (fold) \* \# of models = 10653\*4= 42,612
+
+\~42,612 total iterations mean it will take some time to run.
+
+```{r, echo=FALSE, fig.show='hold', fig.width=6, fig.height=4}
+
+# set up data for cross-validation
+
+myseries_cv <- myseries |>
+slice(1:(n() - 3)) |> ## hold out 3 to forecast
+stretch_tsibble(.init = 36, .step = 3) #first 36 observations, increment by 3 
+
+
+# iterations = (total observations - initial training size)/step size = (31995-36)/3 = 10653 
+
+# total # of iterations = iterations for rolling window (fold) * # of models = 10653/5 = 53,265
+
+
+```
+
+```{r}
+myseries_cv |>
+  model(
+    hw = ETS(Turnover ~ error("M") + trend("A") + season("M")),
+    hwdamped = ETS(Turnover ~ error("M") + trend("Ad") + season("M")),
+    snaive = SNAIVE(Turnover),
+    arima = ARIMA(Turnover)
+    # log_ets = ETS(log(Turnover)),
+    # stl = decomposition_model(STL(log(Turnover)), ETS(season_adjust))
+  ) |>
+  forecast(h = 3) |>
+  accuracy(myseries)
+
+
+
+# train model w 1-36 observations then test the model on next 3 observation
+ 
+# second iteration: 4-39 observations, forecast 40, 41, 42
+
+# third iteration: 7-42, forecast 43, 44, 45
+```
+
+Based on the cross validation results, hw model ETS(M,A,M) has the lowest RMSE meaning it had the most accurate forecasts on average across all forecast horizons compared to other models.
+
+```{r}
+#unique(aus_retail$State)
+#unique(aus_retail$Industry)
+#unique()
+
+```
+
+## final check
+
+```{r}
+fit |>
+select("hw") |>
+gg_tsresiduals()
+```
+
+We want to check the autocorrelation from before vs now. If the lines are all between the blue bounds, it means there is no significant autocorrelation remaining in the residuals meaning the model has sucessfully captures time dependent structure in the data. There is still some temporal dependence at lag 4 and 12 meaning that the model isn't perfect but it did capture a significant amount of the structure comparing the autocorrelation plots from before vs after.
+
+## conclusion
+
+We can identify the best-performing models by comparing their RMSE values. In Parts 1–3, we explored the data to identify appropriate time series models and assessed their in-sample accuracy by comparing the fitted values to the actual observations. In Part 4, we split the data into training (before December 2016) and testing (after) to evaluate how well each model forecasts a single future period. In Part 5, we extended this evaluation by using approximately 40,000 rolling windows, repeatedly training and testing across different time segments. This provided a more robust assessment of predictive performance across all time periods, ultimately identifying the hw model (ETS(M,A,M)) as the most accurate overall.
+
+### Source
+
+Australian Bureau of Statistics, catalogue number 8501.0, table 11.
+
+credits to <https://otexts.com/fpp3/>
