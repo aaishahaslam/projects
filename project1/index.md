@@ -75,7 +75,7 @@ This graph demonstrates what we needed to do to **address measuring forecast acc
 
 These are the forecasts for the final 2 years based on the training dataset. Second graph is zoomed in on the fprecasted data.
 
-# Part 5 Cross Validation
+## Part 5 Cross Validation
 
 A large **limitation** to the above analysis is that one train-test split only gives us **one snapshot for one time period**. It **does not** reflect how the model will perform in **different time periods** or in different conditions. To **address this problem**, **cross-validation is necessary**.
 
@@ -103,13 +103,13 @@ and so on....
 
 ## Final Check
 
-![ACF](./Retail.sales.project_files/images/unnamed-chunk-1-5.png)
+![acf](./Retail.sales.project_files/images/output5.png)
 
-Before
+**Before**
 
 ![acf](./Retail.sales.project_files/images/output4.png)
 
-After
+**After**
 
 We want to check the autocorrelation from before vs now. If the lines are all between the blue bounds, it means there is **no significant autocorrelation remaining** in the residuals meaning the model has **successfully** captured time-dependent structure in the data. There is still **some** temporal dependence at lag (time) 4 and 12 meaning that the model is not perfect but it did capture a significant amount of the structure comparing the autocorrelation plots from before vs after.
 
