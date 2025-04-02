@@ -61,7 +61,7 @@ The RMSE’s are pretty similar with the hw model having a slightly lower RMSE. 
 
 ## Part 4 Accuracy of Training to Test Data
 
-![Plot 7](./Retail.sales.project_files/images/unnamed-chunk-5-1.png)
+![Plot 7](./Retail.sales.project_files/images/output6.png)
 
 This graph demonstrates what we needed to do to **address measuring forecast accuracy on new unseen data.** We split the dataset into **training (blue)** and the **test data (red)** that will be forecasted. All observations **before 2016 Dec are training data** and **everything after 2016 Dec is test data.** In other words, the model will use the training data to try to predict the test data and compare it to the actual observed values and see how accurate it is.
 
