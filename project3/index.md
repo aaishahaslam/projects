@@ -1,5 +1,5 @@
 ---
-title: "Project 3"
+title: "LLY Acquisition"
 nav_order: 3
 ---
 
