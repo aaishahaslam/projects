@@ -9,8 +9,8 @@ This is the homepage of my projects.
 Navigate using the sidebar to explore different sections.
 
 - Retail Sales Forecasting Project (COMPLETE ✅)
-- Boston Housing Pricing Prediction ML Analysis (COMPLETE ✅)
+- Boston House Pricing Prediction ML Analysis (COMPLETE ✅)
 - Eli Lilly And Co (LLY) Acquisition Analysis Project (in progress⏳)
-- Apple Treasury Duration/Convexity Bond Analysis (COMPLETE ✅)
+- Apple Treasury Duration/Convexity Bond Price Modeling (COMPLETE ✅)
 
 [Link to GitHub repo (source files)](https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file)
