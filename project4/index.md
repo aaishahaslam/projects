@@ -2,7 +2,7 @@
 title: "Apple's Duration/Convexity Bond Analysis"
 nav_order: 4
 ---
-![Apple](./project4/apple_screenshot.png)
+![Apple](projects/project4/apple_screenshot.png)
 
 Bond issued by Apple with CUSIP: 037833AT7, maturity in 5/6/2044
 
