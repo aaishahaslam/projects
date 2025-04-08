@@ -1,5 +1,5 @@
 ---
-title: "Boston Home Prices Machine Learning Analysis"
+title: "Boston Home Prices Machine Learning Analysis 🏠 "
 nav_order: 3
 ---
 
