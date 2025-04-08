@@ -15,7 +15,7 @@ nav_order: 2
 
 **Industry**:	The industry of retail trade (cafes, takeout, pharmaceutical, clothing, newspaper/book, household goods, hardware, furniture, dept stores, liqor, footwear, electronic goods) is included in the dataset. 
 
-From the dataset, we selected the **Queensland State** and the **clothing industry** due to personal interest. The model focus will be **Exponential Trend Smoothing** models.
+From the dataset, we selected the **Queensland State** and the **clothing industry** due to personal interest. The model focus will be **Exponential Trend Smoothing** models. Exponential Trend Smoothing is a type of Exponential Smoothing model designed to forecast time series data that has a trend. It gives more weight to recent observations but still considers older data using exponentially decreasing weights.
 
 ## Part 1 Data Visualization
 
