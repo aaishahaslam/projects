@@ -1,9 +1,9 @@
 ---
-title: "Retail Sales Forecasting Project 🛍️📈"
+title: "Retail Sales Forecasting Project"
 nav_order: 2
 ---
 
-# **Retail Sales Prediction Time Series Project**
+# **Retail Sales Prediction Time Series Project 🛍️📈**
 
 ## **Question: Which time series model best predicts retail sales in Queensland, Australia?**
 
