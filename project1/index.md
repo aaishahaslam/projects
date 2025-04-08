@@ -1,5 +1,5 @@
 ---
-title: "Retail Sales Forecasting Project"
+title: "Retail Sales Forecasting"
 nav_order: 2
 ---
 
