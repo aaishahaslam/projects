@@ -40,7 +40,7 @@ Third plot dives deeper into month and shows detailed variations between each mo
 
 ## Part 2 Model Selection and Creating Potential Forecasts
 
-Based on the graphs above, **an Exponential Trend Smoothing (ETS) model** would be appropriate due to the trend and multiplicative seasonality present. ETS models incorporate error (additive or multiplicative), trend (none, additive, or damped), and seasonality (none, additive or multiplicative). This means there are **18 possible ETS models** we can choose from.
+Based on the graphs above, **an Exponential Trend Smoothing (ETS) model** would be appropriate due to the trend and multiplicative seasonality present. Exponential smoothing is a method of forecasting that uses a weighted average of past observations to predict future values. The weights assigned to past observations are exponential, with more recent observations having a higher weight than older observations ETS models incorporate error (additive or multiplicative), trend (none, additive, or damped), and seasonality (none, additive or multiplicative). This means there are about **18 possible ETS models** we can choose from.
 
 I am choosing **ETS (M,A,M) and damped ETS model (M,Ad,M)** based on the graph as it shows multiplicative seasonality, matched seasonality with residuals and trend is visible as well.
 
