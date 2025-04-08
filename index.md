@@ -13,4 +13,4 @@ Navigate using the sidebar to explore different sections.
 - Eli Lilly And Co (LLY) Acquisition Analysis Project (in progress⏳)
 - Apple Treasury Duration/Convexity Bond Price Modeling (COMPLETE ✅)
 
-[Link to GitHub repo (source files)](https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file)
+[Link to GitHub repo (code/source files)](https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file)
