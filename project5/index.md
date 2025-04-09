@@ -6,11 +6,13 @@ nav_order: 5
 
 ## **Question: Which time series model can better predict international flight arrivals from the US?**
 
-This project is an extension the Retail Sales Prediction project except instead of ETS models, we're comparing an **automated ARIMA and a manually selected ARIMA**. ARIMA models are **AutoRegressive Integrated Moving Average** models that forecast values based on its own past values and past errors. The AR (**AutoRegressive**) component uses lagged past values to predict the present. The I (**Integrated**) component applies differencing to make the data stationary. The MA (**Moving Average**) component models past forecast errors. These models are parameterized as **ARIMA(p,d,q)(P,D,Q)[s],** where the lowercase letters represent **non-seasonal** components and the uppercase letters represent **seasonal components** with seasonality period **s**.
+## Background
+
+This project is an extension of the Retail Sales Prediction project except instead of ETS models, we're comparing an **automated ARIMA and a manually selected ARIMA**. ARIMA models are **AutoRegressive Integrated Moving Average** models that forecast values based on its own past values and past errors. The **AutoRegressive** (AR) component uses lagged past values to predict the present. The **Integrated** (D) component applies differencing to make the data stationary. The **Moving Average** (MA) component models past forecast errors. 
 
 p= AR, d= differencing, q = MA
 
-The models are written as ARIMA(p,d,q)(P,D,Q), where the lowercase letters are **non-seasonal** while the uppercase letters are **seasonal**.
+**These models are parameterized as **ARIMA(p,d,q)(P,D,Q)[s],** where the lowercase letters represent **non-seasonal** components and the uppercase letters represent **seasonal components** with seasonality period **s**.**
 
 **The models we are comparing are an automatically generated ARIMA from R software and an ARIMA ordering we manually chose based on observing autocorrelation and partial autocorrelation plots.**
 
@@ -26,18 +28,19 @@ The first plot is a basic time series plot showing US flight Arrivals from 1981 
 
 ![autoplot](./us_arrivals_project_files/unnamed-chunk-2-2.png)
 
-Since there is trend and seasonality, we want to **difference** the data to make it **stationary.** Stationary means there is a constant mean and variance over time. **Making the data stationary will allow us to effectively look at the autocorrelation and partial autocorrelation plots and devise an appropriate ARIMA model by helping us identify the AR and MA parameters for the ARIMA model.** The differenced data is shown above.
+Since there is trend and seasonality present, we want to **difference** the data to make it **stationary.** Stationary means there is a constant mean and variance over time. **Making the data stationary will allow us to effectively look at the autocorrelation and partial autocorrelation plots and devise an appropriate ARIMA model by helping us identify the AR and MA parameters for the ARIMA model.** The differenced data is shown above.
 
 ![autoplot](./us_arrivals_project_files/unnamed-chunk-2-3.png)
 ![autoplot](./us_arrivals_project_files/unnamed-chunk-2-4.png)
 
-This is an estimation but from looking at the ACF (**autocorrelation**) plot, we can see the lines are tailing off while from PACF (**partial autocorrelation**) plot, the lines cut off after lag 2 suggesting an AR 2 process. For the non seasonal portion, we get (2,1,0), with 1 non seasonal difference. Looking at the seasonal lags (lags 4,8,12... for quarterly data), we see a spike at lags 1 for both the ACF and PACF plot meaning 1 seasonal AR and 1 seasonal MA process (1,1,1) with a seasonal difference. 
+This is an estimation but from looking at the **autocorrelation** (ACF) plot, we can see the lines are tailing off while from **partial autocorrelation** (PACF) plot, the lines cut off after lag 2 suggesting an AR 2 process. For the non seasonal portion, we get (2,1,0), with 1 non seasonal difference. Looking at the seasonal lags (lags 4,8,12... for quarterly data), we see a spike at lags 1 for both the ACF and PACF plot, meaning 1 seasonal AR and 1 seasonal MA process (1,1,1) with a seasonal difference. 
 
-**The final manually chosen ARIMA model would be (2,1,0)(1,1,1) [4] (the 4 meaning quarterly).**
+**The final manually chosen ARIMA model would be (2,1,0)(1,1,1) [4] (4 = quarterly data).**
 
 ![autoplot](./us_arrivals_project_files/autoarima.png)
 
-For the automated selected ARIMA using R algorithms, after fitting the model on the training data, we get an ARIMA order of (1,0,1)(0,1,2) [4] meaning non seasonal AR 1 and MA 1 and seasonal MA 2. These are the two models we'll be comparing. **The auto generated ARIMA model would be (1,0,1)(0,1,2) [4]**
+For the automated selected ARIMA using R algorithms, after fitting the model on the training data, we get an ARIMA order of (1,0,1)(0,1,2) [4] meaning non seasonal AR 1 and MA 1 and seasonal MA 2. These are the two models we'll be comparing.
+**The auto generated ARIMA model would be (1,0,1)(0,1,2) [4]**
 
 ## Train/Test Data
 
@@ -57,7 +60,7 @@ The second RMSE's show how well the model forecasts unseen future data (15 quart
 
 ![autoplot](./us_arrivals_project_files/unnamed-chunk-5-1.png)
 
-These are the forecasts for the next 15 quarters generated by each model. The black line represents the actual observed values, while the blue line shows the SNaive forecasts a **baseline model** that assumes future values will repeat the past seasonal pattern. If a model cannot outperform SNaive, it may not offer meaningful predictive value. From the plot, we can see that the automated ARIMA model deviates significantly from the actual data, while our manually selected ARIMA model aligns more closely. This suggests that manual ARIMA selection, guided by diagnostic plots, currently yields better performance.
+These are the forecasts for the next 15 quarters generated by each model. The black line represents the actual observed values, while the blue line shows the SNaive forecasts a **baseline model** that assumes future values will repeat the past seasonal pattern. If a model cannot **outperform** SNaive, it may **not offer** meaningful predictive value. From the plot, we can see that the automated ARIMA model deviates significantly from the actual data, while our manually selected ARIMA model aligns more closely. This suggests that manual ARIMA selection, guided by diagnostic plots, currently yields better performance.
 
 ![autoplot](./us_arrivals_project_files/unnamed-chunk-5-2.png)
 
@@ -71,13 +74,13 @@ The table summarizes the **average forecast accuracy of each model** (ARIMA_auto
 
 ![autoplot](./us_arrivals_project_files/unnamed-chunk-7-1.png)
 
-Most of the lines in the ACF plot are between the blue bounds meaning there is no significant autocorrelation remaining, so the model has sucessfully captured the majority of time dependent structure in the data.
+Most of the lines in the ACF plot are between the blue bounds meaning there is **no significant autocorrelation** remaining, so the model has sucessfully captured the **majority** of time dependent structure in the data.
 
 ## Conclusion
 
 Our manually chosen ARIMA model **continuously outperformed** the automated ARIMA and SNaive benchmarks. This implies that using automated arimas alone is not sufficient and could result in less-than-ideal projections, particularly when domain expertise or thorough diagnostic analysis can guide better model selections. 
 
-Source
+Source:
 Tourism Research
 
 credits to https://otexts.com/fpp3/ and https://link.springer.com/book/10.1007/978-3-031-70584-7
