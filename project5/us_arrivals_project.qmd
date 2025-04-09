@@ -1,0 +1,185 @@
+---
+title: "us_arrivals_project"
+format: html
+editor: visual
+---
+
+Which model can better predict international flight arrivals from the US?
+
+This project is an extension the Retail Sales Prediction project except instead of ETS models, we're comparing an automated ARIMA and a manually selected ARIMA. ARIMA models are AutoRegressive Integrated Moving Average models that forecast values based on its own past values and past errors. The AR (auto regressive) part uses past values to predict current value using a regression on lagged values. The integrated (differencing) part removes non-stationarity and the parameter tells us how many times differencing is applied. MA (Moving Average) portion uses past forecast errors to model current values.
+
+p= AR, d= differencing, q = MA
+
+It's written as ARIMA(p,d,q)(P,D,Q), where the lowercase letters are non-seasonal while the uppercase letters are seasonal.
+
+The models we are comparing are an automatically generated ARIMA from R software and an ARIMA ordering we manually chose based on observing autocorrelation and partial autocorrelation plots.
+
+Dataset Information:
+
+Quarterly international arrivals to Australia from Japan, New Zealand, UK and the US. 1981Q1 - 2012Q3. We are focusing on US international flights.
+
+```{r}
+library(astsa)
+library(fpp3)
+library(forecast)
+```
+
+## Data
+
+The first plot is a basic time series plot showing US flight Arrivals from 1981 to 2012. F**eatures** we are looking for are **trend and seasonality.** There is a clear trend, and the seasonality seems to occur over a few quarters which makes sense in context as different quarters have fluctuating travel volumes.
+
+Since there is trend and seasonality, we want to difference the data to make it stationary. Stationary means there is a constant mean and variance over time. Making the data stationary will allow us to effectively look at the autocorrelation and partial autocorrelation plots and devise an appropriate ARIMA model by helping us identify the AR and MA terms for the ARIMA model. The differenced data is shown above.
+
+This is an estimation but from looking at the ACF (autocorrelation) plot, we can see the lines are tailing off while from PACF (partial autocorrelation) plot, the lines cut off after lag 2 suggesting an AR 2 process. For the non seasonal portion, we get (2,1,0), with 1 non seasonal difference. Looking at the seasonal lags (lags 4,8,12... for quarterly data), we see a spike at lags 1 for both the ACF and PACF plot meaning 1 seasonal AR and 1 seasonal MA process (1,1,1) with a seasonal difference. The final ARIMA model would be (2,1,0)(1,1,1) \[4\] (the 4 meaning quarterly).
+
+For the automated selected ARIMA using R algorithms, after fitting the model on the training data, we get an ARIMA order of (1,0,1)(0,1,2) \[4\] meaning non seasonal AR 1 and MA 1 and seasonal MA 2. These are the two models we'll be comparing.
+
+## 
+
+```{r}
+us <- aus_arrivals |>
+filter(Origin == "US")
+
+aus_arrivals |>
+  filter(Origin == "US") |>
+autoplot(Arrivals) +
+  labs(title = "US arrivals",
+       x = "quarter",
+       y = "Number of arrivals") 
+
+
+diff_us <- diff(diff(us$Arrivals, lag = 4),lag = 1)
+diff_us_ts <- ts(diff_us, frequency = 4)
+
+
+# Step 5: Plot the differenced series
+autoplot(diff_us_ts) +
+  labs(title = "Differenced US Arrivals", y = "Δ Arrivals")
+
+acf1(diff_us_ts)
+pacf(diff_us_ts)
+```
+
+## train/test data
+
+This is the training/test data split. Training data will be data before Q4 2008 while testing data will be 2009 Q1 and afterwards. The models will use the training data (blue) and try to predict the test data (red) and the RMSE will be used to compare the accuracy of the fitted data to the observed data.
+
+```{r}
+us_train2 <- us |>
+  filter_index(. ~ "2008 Q4")
+
+us_test2 <- us |>
+  filter_index("2009 Q1" ~ .)
+# Combine training and test with a label
+us_combined <- bind_rows(
+  mutate(us_train2, Set = "Training"),
+  mutate(us_test2, Set = "Test")
+)
+
+# Plot
+ggplot(us_combined, aes(x = Quarter, y = Arrivals, color = Set, group = 1)) +
+  geom_line() +
+  labs(title = "Training vs Test Data",
+       y = "Arrivals", x = "Quarter") +
+  scale_color_manual(values = c("Training" = "blue", "Test" = "red"))
+```
+
+The first RMSE's above shows how well the model fits the training data. We see that our manually chosen ARIMA is doing slightly better than the automated ARIMA. The second RMSE's show how well the model forecasts unseen future data (15 quarters ahead) and compares it to the actual observed data. We see our manually selected ARIMA again is performing much better than the automated ARIMA. Now we'll use cross validation later on to see performance against multiple time periods.
+
+```{r}
+
+
+# Step 3: Fit models on training data
+us_models <- us_train2 |>
+  model(
+    ARIMA_auto = ARIMA(Arrivals),
+    ARIMA_manual = ARIMA(Arrivals ~ pdq(2,1,0) + PDQ(1,1,1)),
+   # manual2 = ARIMA(Arrivals ~ pdq(2,1,0) + PDQ(1,1,1)),
+    SNaive = SNAIVE(Arrivals ~ lag("year"))
+  )
+accuracy(us_models)
+
+us_models |>
+  select(ARIMA_auto) |>
+  report()
+# Step 4: Forecast 15 quarters ahead
+us_forecasts <- us_models |>
+  forecast(h = 15)
+
+# Step 5: Compare RMSE using test data
+us_forecasts |>
+  accuracy(us_test2) |>
+  select(.model, RMSE)
+
+```
+
+These is the forecasts for 15 quarters for each model. The black line shows the actual observed values. The blue line is SNAIVE which is a baseline time series model that assumes the future will be the same the past. If the model isn't performing better than SNAIVE then it wouldn't be useful to use. From the plot, we see how auto arima is significantly off, meaning its better to manually choose ARIMA models.
+
+```{r}
+us |> 
+  filter_index("2009 Q1" ~ .) |>
+  autoplot(Arrivals) +
+  autolayer(us_test2, Arrivals, color = "black", name ="Observed Data") +
+  autolayer(us_forecasts, level=NULL, color = "blue") +
+  ggtitle("Forecasts") +
+  labs(y = "Number of Arrivals", x = "Quarter") 
+
+us_forecasts |> 
+  filter_index("2009 Q1" ~ .) |>
+  autoplot(us, level = NULL) +
+  ggtitle("Forecast Comparison") +
+  labs(y = "Number of Arrivals", x = "Quarter")
+```
+
+## Cross validation
+
+```{r}
+# Step 2: Set up a rolling-origin cross-validation window
+# Initial training: up to 2007 Q4
+# Forecast 2 years ahead (8 quarters)
+us_cv <- us |>
+  stretch_tsibble(.init = 40, .step = 1)  # adjust .init based on how much history you want
+
+# Step 3: Fit models at each resample
+us_cv_models <- us_cv |>
+  model(
+    ARIMA_auto = ARIMA(Arrivals),
+    ARIMA_manual = ARIMA(Arrivals ~ pdq(2,1,0) + PDQ(1,1,1)),
+   # manual2 = ARIMA(Arrivals ~ pdq(3,1,0) + PDQ(1,1,1)),
+    SNaive = SNAIVE(Arrivals ~ lag("year"))
+  )
+
+# Step 4: Forecast next 15 quarters at each origin
+us_cv_forecasts <- us_cv_models |>
+  forecast(h = 15)
+
+# Step 5: Evaluate accuracy across all forecast origins
+us_cv_accuracy <- us_cv_forecasts |>
+  accuracy(us, measures = list(RMSE = RMSE, MAPE = MAPE))
+
+# Step 6: View average RMSE and MAPE
+us_cv_accuracy |>
+  group_by(.model) |>
+  summarise(RMSE = mean(RMSE, na.rm = TRUE),
+            MAPE = mean(MAPE, na.rm = TRUE))
+
+## \text{# of rolling windows} = N - \text{initial training size} - \text{forecast horizon} + 1 \text{# of windows} = 127 - 40 - 15 + 1 = 73. 73*3 = 219.
+## 73*15 = 1095 * 3 models = 3285 total forecasts
+
+```
+
+The table summarizes the average forecast accuracy of each model (ARIMA_auto, ARIMA_manual, and SNaive) across all rolling-origin cross-validation folds. A lower RMSE indicates better performance. The code performs rolling-origin cross-validation by first creating a series of expanding training windows using starting with the first 40 observations and incrementally adding one observation at a time. For each window, it fits three forecasting models—an automatic ARIMA, a manual ARIMA, and a seasonal naïve model—using only the data available up to that point. It then generates forecasts 15 quarters ahead from each model and the forecasts are compared against the actual values from the original dataset to calculate accuracy metrics such as RMSE. From the output we see that our manually chosen ARIMA is performing the best.
+
+```{r}
+us_train2 |>
+  model(ARIMA_manual = ARIMA(Arrivals)) |>
+  select(ARIMA_manual) |>
+  gg_tsresiduals()
+
+```
+
+Most of the lines in the ACF plot are between the blue bounds meaning there is no significant autocorrelation remaining in the residuals, so the model has sucessfully captured the majority of time dependent structure in the data
+
+## conclusion
+
+Our manually chosen ARIMA model continuously beat the automated ARIMA and SNaive benchmarks. This implies that using automated arimas alone is not sufficient and could result in less-than-ideal projections, particularly when domain expertise or thorough diagnostic analysis can guide better model selections.
