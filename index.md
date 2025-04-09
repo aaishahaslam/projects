@@ -9,7 +9,7 @@ This is the homepage of my projects.
 Navigate using the sidebar to explore different sections.
 
 - Retail Sales Forecasting Project 🛍️ (COMPLETE ✓)
-- Boston House Pricing Prediction ML Analysis 🏠 (COMPLETE ✓)
+- Boston House Pricing Prediction Machine Learning Analysis 🏠 (COMPLETE ✓)
 - Eli Lilly And Co (LLY) Acquisition Analysis Project 💰 (in progress⏳)
 - Apple Treasury Duration/Convexity Bond Price Modeling 🍎 (COMPLETE ✓)
 - US Flight Arrivals Forecasting ✈️ (COMPLETE ✓)
