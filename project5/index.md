@@ -20,4 +20,4 @@ Quarterly international arrivals to Australia from Japan, New Zealand, UK and th
 
 ## Differencing and Model Selection
 
-![autoplot](./us_arrivals_project_files/images/unnamed-chunk-2-1.png)
+![autoplot](./us_arrivals_project_files/unnamed-chunk-2-1.png)
