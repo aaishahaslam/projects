@@ -7,8 +7,50 @@ nav_order: 3
 
 ## This group project is an analysis of Eli Lilly and Company's acquisition on DICE Therapeutics, a biotech company in South San Francisco in Summer 2023. It includes the earnings impact from a stock vs cash transaction.
 
-## Introduction
-### Market Analysis
+### Target and Acquirer Background
+
+**Acquirer**
+Eli Lilly, based in Indianapolis, is one of the largest competitors in their
+industry with 39,000 employees and a market cap of over $600 billion
+with access to numerous markets across the globe. LLY is a mature firm
+that was founded in 1876 and has acquired numerous other companies
+since their inception. Their revenue growth has remained relatively steady
+year-over-year and have over $2 billion of cash on hand.
+
+**Target**
+Headquartered in San Francisco, DICE is a small therapeutic firm with 71 employees
+and an equity value of 567 million. As a recently founded firm, DICE has
+few competitors other than its own in getting itself into the green. They
+increased their value from 204 million at IPO to 1.752 billion when
+purchased by LLY. DICE has a strong asset base with over $500 million in
+cash on hand as of last quarter and shown consistent revenue growth from
+the time of their inception.
+
+### Synergies
+**Reasons for merger: Synergies**
+Dice Therapeutics developed one type of drug in the immunology space, namely the DELSCAPE
+platform. This proprietary platform shows promising results in the treatment of
+long-term and chronic autoimmune and inflammatory diseases. The DELSCAPE
+platform has a combination of different features that make it appealing to the
+medical industry and the public. This space is fairly new, so potential innovations
+could be incredibly valuable. Although Eli Lilly had similar drugs, analysts must
+have seen better results from the DELSCAPE platform, making this a horizontal
+merger, due to their prior competitor status.
+
+**Comparisons of synergies for current deal vs potential deals**
+Similar targets for this acquisition likely included Argenx, Numab Therapeutics,
+Ventyx, and Revolution Medicines, who are also currently developing PPI
+focused drugs similar to that of Dice Therapeutics. The listed companies differ in
+size with Argenx (ARGX) and Revolution Medicines (RVMD) being publicly
+traded and valued at ~$22.4 billion and ~$4.5 billion, respectively. Targets are
+viewed differently in the biomedical space due to the heavy emphasis on
+proprietary technology and development, making it difficult to commercialize
+drugs that are subject to proprietary restrictions. According to several articles, there were other large biotech companies interested in Dice Therapeutics. This included AbbVie, Bristol-Myers Squibb, Johnson & Johnson, and Merck2 all large-cap established companies.
+
+## Earnings Impact
+
+## Market Analysis
+
 **Worldwide trends**- Global M&A fell 20% in 2023 (when the deal was completed) compared to 2022
 to a total value of about $3 trillion. The Fed’s rate hikes ontributed to an overall uncertain
 economic outlook, causing companies to hold off on deals until they were more
@@ -32,56 +74,6 @@ prices, with an average rise of 31.6% from July 2021 to July 2022. High inflatio
 impacts, and scrutiny from the Federal Trade Commission are all factors
 affecting the market surrounding pharmaceuticals.
 
-### Target and Acquirer Background
-
-**Acquirer**
-Eli Lilly, based in Indianapolis, is one of the largest competitors in their
-industry with 39,000 employees and a market cap of over $600 billion
-with access to numerous markets across the globe. LLY is a mature firm
-that was founded in 1876 and has acquired numerous other companies
-since their inception. Their revenue growth has remained relatively steady
-year-over-year and have over $2 billion of cash on hand making
-showcasing that they have a very low credit risk.
-
-**Target**
-Headquartered in San Francisco, DICE is a small therapeutic firm with 71 employees
-and an equity value of 567 million. As a recently founded firm, DICE has
-few competitors other than its own in getting itself into the green. They
-increased their value from 204 million at IPO to 1.752 billion when
-purchased by LLY. DICE has a strong asset base with over $500 million in
-cash on hand as of last quarter and shown consistent revenue growth from
-the time of their inception, insinuating that they are a low credit risk.
-
-### Synergies
-**Reasons for merger: Synergies**
-Dice Therapeutics developed one type of drug in the immunology space, namely the DELSCAPE
-platform. This proprietary platform shows promising results in the treatment of
-long-term and chronic autoimmune and inflammatory diseases. The DELSCAPE
-platform has a combination of different features that make it appealing to the
-medical industry and the public. This space is fairly new, so potential innovations
-could be incredibly valuable. Although Eli Lilly had similar drugs, analysts must
-have seen better results from the DELSCAPE platform, making this a horizontal
-merger, due to their prior competitor status.
-
-**Market Reaction to Synergies**
-Upon the publication of the acquisition, Eli Lilly’s stock rose about 2.5% over the
-coming week. The acquisition was relatively small (2.4 billion) in comparison to Eli Lilly’s market capitalization (~360 billion in June 2023). Eli Lilly’s stock has since skyrocketed nearly 40% since then valuing the company at over $600 billion.
-
-**Comparisons of synergies for current deal vs potential deals**
-Similar targets for this acquisition likely included Argenx, Numab Therapeutics,
-Ventyx, and Revolution Medicines, who are also currently developing PPI
-focused drugs similar to that of Dice Therapeutics. The listed companies differ in
-size with Argenx (ARGX) and Revolution Medicines (RVMD) being publicly
-traded and valued at ~$22.4 billion and ~$4.5 billion, respectively. Targets are
-viewed differently in the biomedical space due to the heavy emphasis on
-proprietary technology and development, making it difficult to commercialize
-drugs that are subject to proprietary restrictions. According to several articles, there were other large biotech companies interested in Dice Therapeutics. This included AbbVie, Bristol-Myers Squibb, Johnson & Johnson, and Merck2 all large-cap established companies. These companies all
-develop similar drugs to Dice Therapeutics and Eli Lilly, but the acquisition
-would allow them to access the proprietary technology Dice has developed.
-
-## Earnings Impact
-
-## Valuations
 
 
 
