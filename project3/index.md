@@ -1,6 +1,6 @@
 ---
 title: "LLY Acquisition"
-nav_order: 3
+nav_order: 5.2
 ---
 
 # Project 3
