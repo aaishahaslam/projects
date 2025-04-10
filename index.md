@@ -14,5 +14,9 @@ Navigate using the sidebar to explore different sections.
 - Apple Treasury Duration/Convexity Bond Price Modeling 🍎 (COMPLETE ✓)
 - US Flight Arrivals Forecasting ✈️ (COMPLETE ✓)
 
+<br><br><br>
+
+
+<a href="project1/AaishahAslamResume.pdf" class="btn btn-primary" role="button" target="_blank">📄 My Resume</a>
 <a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-primary" role="button" target="_blank">Link to GitHub repo (code/source files)</a>
 
