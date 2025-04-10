@@ -1,0 +1,6 @@
+* [Home](index.md)
+* [Project 1](project1/index.md)
+* [Project 2](project2/index.md)
+* [Project 4](project4/index.md)
+* [Project 5](project5/index.md)
+* [Project 3](project3/index.md)  <!-- moved here to be last -->
