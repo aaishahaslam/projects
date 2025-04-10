@@ -5,7 +5,7 @@ nav_order: 3
 
 # Project 3
 
-## This group project is an analysis of Eli Lilly and Company's acquisition on DICE Therapeutics, a biotech company in South San Francisco in Summer 2023. It includes ___
+## This group project is an analysis of Eli Lilly and Company's acquisition on DICE Therapeutics, a biotech company in South San Francisco in Summer 2023. It includes the earnings impact from a stock vs cash transaction.
 
 ## Introduction
 ### Market Analysis
@@ -78,6 +78,8 @@ proprietary technology and development, making it difficult to commercialize
 drugs that are subject to proprietary restrictions. According to several articles, there were other large biotech companies interested in Dice Therapeutics. This included AbbVie, Bristol-Myers Squibb, Johnson & Johnson, and Merck2 all large-cap established companies. These companies all
 develop similar drugs to Dice Therapeutics and Eli Lilly, but the acquisition
 would allow them to access the proprietary technology Dice has developed.
+
+## Earnings Impact
 
 ## Valuations
 
