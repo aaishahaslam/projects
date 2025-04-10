@@ -15,3 +15,6 @@ Navigate using the sidebar to explore different sections.
 - US Flight Arrivals Forecasting ✈️ (COMPLETE ✓)
 
 [Link to GitHub repo (code/source files)](https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file)
+
+<a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-primary" role="button" target="_blank">Link to GitHub repo</a>
+
