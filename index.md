@@ -9,7 +9,11 @@ This is the homepage of my projects.
 Navigate using the sidebar to explore different sections.
 
 - [Retail Sales Forecasting Project 🛍️](./project1/) (COMPLETE ✓)
+<details>
+<summary>Click to expand</summary>
   - This project investigates which time series model best predicts retail sales in Queensland’s clothing industry using data from the Australian Bureau of Statistics. ETS models were derived based on investigating specific trends and seasonality in the data, and the models were evaluated for their forecasting accuracy. In-sample fit and out-of-sample forecasting were assessed using RMSE, followed by a rolling window cross-validation. Autocorrelation plots were also compared to investigate whether temporal dependence remained in the data. 
+<details>
+
 - [Boston House Pricing Prediction Machine Learning Analysis 🏠](./project2/) (COMPLETE ✓)
   - This project examines the key factors influencing Boston home prices using machine learning models (KNN algorithm, step-wise regression, random forest). The goal is to understand which factors drive median home values (medv) and to identify the best predictive model. Stepwise and random forest were used for feature selection, while KNN was used to capture nonlinear, data driven patterns to estimate Boston housing prices. 10 fold cross validation was used to find different values of k and different sets of predictors, helping identify the most accurate KNN configuration for predicting home values.
 - [Apple Treasury Duration/Convexity Bond Price Modeling 🍎](./project4/) (COMPLETE ✓) 
