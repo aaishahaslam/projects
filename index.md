@@ -9,6 +9,9 @@ This is the homepage of my projects.
 Navigate using the sidebar to explore different sections.
 
 - Retail Sales Forecasting Project 🛍️ (COMPLETE ✓)
+  * This project investigates which time series model best predicts retail sales in Queensland’s clothing industry using data from the Australian Bureau of Statistics. After identifying strong trend and   
+    multiplicative seasonality in the data, ETS models—specifically ETS(M,A,M) and its damped version ETS(M,Ad,M)—were evaluated for their forecasting accuracy. In-sample fit and out-of-sample forecasting were 
+    assessed using RMSE, followed by a rolling window cross-validation comparing ETS, ARIMA, and a seasonal naïve benchmark. Autocorrelation plots were also compared to investigate temporal dependence in the data. 
 - Boston House Pricing Prediction Machine Learning Analysis 🏠 (COMPLETE ✓)
 - Eli Lilly And Co (LLY) Acquisition Analysis Project 💰 (in progress⏳)
 - Apple Treasury Duration/Convexity Bond Price Modeling 🍎 (COMPLETE ✓)
