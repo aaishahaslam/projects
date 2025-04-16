@@ -13,6 +13,9 @@ Navigate using the sidebar to explore different sections.
 <a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-secondary" role="button" target="_blank">🔗 Link to GitHub Repo (Code/Source Files)</a>
 <br>
 
+<details open>
+  <summary><strong>Click to hide/show text</strong></summary>
+  <p>
 - [Retail Sales Forecasting Project 🛍️](./project1/) (COMPLETE ✓)
     <p>This project investigates which time series model best predicts retail sales in Queensland’s clothing industry using data from the Australian Bureau of Statistics. ETS models were derived based on investigating specific trends and seasonality in the data, and the models were evaluated for their forecasting accuracy. In-sample fit and out-of-sample forecasting were assessed using RMSE, followed by a rolling window cross-validation. Autocorrelation plots were also compared to investigate whether temporal dependence remained in the data.</p>
 
@@ -27,5 +30,7 @@ Navigate using the sidebar to explore different sections.
 
 - [Eli Lilly And Co (LLY) Acquisition Analysis Project 💰](./project3/) (in progress ⏳)
 
+  </p>
+</details>
 
 
