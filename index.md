@@ -58,7 +58,7 @@ Navigate using the sidebar to explore different sections.
 
   details.addEventListener('toggle', () => {
     label.innerHTML = details.open
-      ? '<strong>Click to hide</strong>'
-      : '<strong>Click to show</strong>';
+      ? '<strong>🔽 Click to hide</strong>'
+      : '<strong>▶️ Click to show</strong>';
   });
 </script>
