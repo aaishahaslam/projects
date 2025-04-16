@@ -47,7 +47,6 @@ Navigate using the sidebar to explore different sections.
   <p>
     - <a href="./project3/">Eli Lilly And Co (LLY) Acquisition Analysis Project 💰</a> (in progress ⏳)<br>
     <span style="margin-left: 2em; display: block;">
-      This project is currently in progress and focuses on analyzing the potential impact of an acquisition on Eli Lilly’s financial performance, valuation, and competitive positioning. The analysis will include comparable company valuation, synergy estimation, and scenario modeling for different acquisition structures. Findings will help evaluate whether the acquisition adds long-term value for shareholders.
     </span>
   </p>
 
