@@ -5,7 +5,7 @@ nav_order: 2
 
 # **Retail Sales Prediction Time Series Project 🛍️📈**
 
-## **Time series model that best predicts retail sales in Queensland, Australia?**
+## **Time series model that best predicts retail sales in Queensland, Australia**
 
 ## Method:
 
