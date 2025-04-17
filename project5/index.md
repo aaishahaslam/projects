@@ -4,7 +4,7 @@ nav_order: 5
 ---
 # **US Flight Arrivals Forecasting ✈️**
 
-## **Question: Which time series model can better predict international flight arrivals from the US?**
+## **Question: Time series model that can better predict international flight arrivals from the US**
 
 ## Background
 
