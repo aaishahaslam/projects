@@ -10,7 +10,7 @@ Navigate using the sidebar to explore different sections.
 
 <a href="AaishahAslamResume.pdf" class="btn btn-primary" role="button" target="_blank">📄 My Resume</a>
 <br>
-<a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-secondary" role="button" target="_blank">🔗 Link to GitHub Repo (Code/Source Files)</a>
+<a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-secondary" role="button" target="_blank">🔗 Link to GitHub Home (Code Files)</a>
 <br>
 
 <details id="projectDetails" open>
