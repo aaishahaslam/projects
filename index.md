@@ -63,3 +63,6 @@ label.innerHTML = details.open
 : '<strong>▶️ Click to show</strong>';
 });
 </script>
+
+<hr style="margin-top: 1.5rem; border: none; border-top: 1px solid #e1e4e8;">
+
