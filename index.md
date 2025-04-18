@@ -17,13 +17,13 @@ Navigate using the sidebar to explore different sections.
 <br>
 *Website coded in HTML/CSS/JavaScript*
 <span style="display:block">
-Experience: <span class="label label-excel">EXCEL</span>
+Skills: <span class="label label-excel">EXCEL</span>
 <span class="label label-r">R</span>
 <span class="label label-python">PYTHON</span>
+<span class="label label-sql">SQL</span>
 <span class="label label-html">HTML</span>
 <span class="label label-css">CSS</span>
 <span class="label label-js">JAVASCRIPT</span>
-<span class="label label-sql">SQL</span>
 </span>
 <hr style="margin-top: 1.5rem; border: none; border-top: 1px solid #e1e4e8;">
 
@@ -78,12 +78,5 @@ label.innerHTML = details.open
 </script>
 
 <hr style="margin-top: 1.5rem; border: none; border-top: 1px solid #e1e4e8;">
-**Tools Used:**  
-<span class="label label-excel">Excel</span> 
-<span class="label label-r">R</span>
-<span class="label label-python">Python</span>
-<span class="label label-html">HTML</span>
-<span class="label label-css">CSS</span>
-<span class="label label-js">JavaScript</span>
-<span class="label label-sql">SQL</span>
+
 
