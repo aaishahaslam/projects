@@ -1,0 +1,7 @@
+.callout-purple {
+  background-color: #f5f0ff; /* light purple */
+  border-left: 4px solid #9b59b6; /* darker purple accent */
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 4px;
+}
