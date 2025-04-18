@@ -12,6 +12,7 @@ Navigate using the sidebar to explore different sections.
 <a href="AaishahAslamResume.pdf" class="btn btn-primary" role="button" target="_blank">📄 My Resume</a>
 <br>
 <a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-secondary" role="button" target="_blank">🔗 Link to GitHub Home (Code Files)</a>
+<br>
 *Website coded in HTML/CSS/JavaScript*
 <hr style="margin-top: 1.5rem; border: none; border-top: 1px solid #e1e4e8;">
 
