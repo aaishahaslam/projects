@@ -4,7 +4,8 @@ nav_order: 1
 ---
 
 # Welcome to Aaishah's Projects 🚀 🌍 
-
+Hi! My name is Aaishah, and I am from San Jose, Bay Area. I am currently an undergrad attending Cal Poly SLO majoring in finance + quantitative analysis and minoring in statistics and law. I have a huge passion for finance, and I'm super interested in the intersection between finance and statistics, and how data analysis can be used to model or even forecast market events or macroeconomic trends. My work experience includes 1 year in financial reporting, 9 months in tech sales, and 5 months in digital media as well as 1 year of research experience. I’m actively pursuing opportunities in FP&A or financial analyst roles, where I can apply both my analytical background and strategic mindset. Outside of work, I enjoy day trading, concerts, skincare, shopping, and boba. 
+<br>
 This is the homepage of my projects.  
 Navigate using the sidebar to explore different sections.
 
@@ -16,6 +17,7 @@ Navigate using the sidebar to explore different sections.
 
 <details id="projectDetails" open>
 <summary id="toggleLabel"><strong>Click to hide</strong></summary>
+*Website coded in HTML/CSS/JavaScript*
 
 <p>
 - <a href="./project1/">Retail Sales Forecasting Project 🛍️</a> <br>
