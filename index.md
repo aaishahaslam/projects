@@ -12,6 +12,7 @@ Navigate using the sidebar to explore different sections.
 <br>
 <a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-secondary" role="button" target="_blank">🔗 Link to GitHub Home (Code Files)</a>
 <br>
+<hr style="margin-top: 1.5rem; border: none; border-top: 1px solid #e1e4e8;">
 
 <details id="projectDetails" open>
 <summary id="toggleLabel"><strong>Click to hide</strong></summary>
