@@ -69,4 +69,12 @@ label.innerHTML = details.open
 </script>
 
 <hr style="margin-top: 1.5rem; border: none; border-top: 1px solid #e1e4e8;">
+**Tools Used:**  
+<span class="label label-excel">Excel</span> 
+<span class="label label-r">R</span>
+<span class="label label-python">Python</span>
+<span class="label label-html">HTML</span>
+<span class="label label-css">CSS</span>
+<span class="label label-js">JavaScript</span>
+<span class="label label-sql">SQL</span>
 
