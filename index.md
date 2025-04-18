@@ -17,7 +17,7 @@ Navigate using the sidebar to explore different sections.
 <br>
 *Website coded in HTML/CSS/JavaScript*
 <span style="display:block">
-<strong>Experience:</strong> <span class="label label-excel">EXCEL</span>
+Experience: <span class="label label-excel">EXCEL</span>
 <span class="label label-r">R</span>
 <span class="label label-python">PYTHON</span>
 <span class="label label-html">HTML</span>
