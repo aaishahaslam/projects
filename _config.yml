@@ -6,7 +6,7 @@ remote_theme: "just-the-docs/just-the-docs"
 just_the_docs:
   assets:
     css:
-      - /assets/css/custom.css
+      - /projects/assets/css/custom.css
 
 # Sidebar navigation order
 nav_order: 1
