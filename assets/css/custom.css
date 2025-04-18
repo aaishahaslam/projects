@@ -6,37 +6,38 @@
   border-radius: 4px;
 }
 
-.label-excel {
+.label.label-excel {
   background-color: #1D6F42; /* Excel green */
   color: #fff;
 }
 
-.label-r {
+.label.label-r {
   background-color: #276DC3; /* R blue */
   color: #fff;
 }
 
-.label-python {
+.label.label-python {
   background-color: #6A5ACD; /* Python purple */
   color: #fff;
 }
 
-.label-html {
+.label.label-html {
   background-color: #E44D26; /* HTML orange */
   color: #fff;
 }
 
-.label-css {
+.label.label-css {
   background-color: #FFD43B; /* CSS yellow */
   color: #000;
 }
 
-.label-js {
-  background-color: #8B0000; /* Maroon for JS */
+.label.label-js {
+  background-color: #8B0000; /* Maroon */
   color: #fff;
 }
 
-.label-sql {
-  background-color: #FF69B4; /* Hot pink for SQL */
+.label.label-sql {
+  background-color: #FF69B4; /* Hot pink */
   color: #fff;
 }
+
