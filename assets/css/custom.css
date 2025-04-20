@@ -40,4 +40,6 @@
   background-color: #FF69B4; /* Hot pink */
   color: #fff;
 }
-
+body {
+  background: hotpink !important;
+}
