@@ -1,3 +1,7 @@
+body {
+  background: hotpink !important;
+}
+
 .callout-purple {
   background-color: #f5f0ff; /* light purple */
   border-left: 4px solid #9b59b6; /* darker purple accent */
@@ -40,6 +44,4 @@
   background-color: #FF69B4; /* Hot pink */
   color: #fff;
 }
-body {
-  background: hotpink !important;
-}
+
