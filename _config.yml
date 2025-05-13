@@ -2,6 +2,7 @@ title: "Aaishah's Projects"
 description: "input words here"
 
 remote_theme: "just-the-docs/just-the-docs"
+color_scheme: auto 
 
 just_the_docs:
   assets:
