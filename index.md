@@ -14,19 +14,13 @@ Navigate using the sidebar to explore different sections.
 <a href="AaishahAslamResume.pdf#zoom=90" class="btn btn-primary" role="button" target="_blank">📄 My Resume</a>
 <br>
 <a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-secondary" role="button" target="_blank">🔗 Link to GitHub Home (Code Files)</a>
-<br>
-<br>
-***Website coded in HTML/CSS/JavaScript***
-<span style="display:block">
-Skills: <span class="label label-excel">EXCEL</span>
-<span class="label label-r">R</span>
-<span class="label label-python">PYTHON</span>
-<span class="label label-sql">SQL</span>
-<span class="label label-html">HTML</span>
-<span class="label label-css">CSS</span>
-<span class="label label-js">JAVASCRIPT</span>
-</span>
 <hr style="margin-top: 1.5rem; border: none; border-top: 1px solid #e1e4e8;">
+
+# Live Stock Market Options Risk Analysis Tool
+I built a tool in python that scrapes live options market data for SPY and calculates/creates plots of the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date. 
+
+<a href="https://colab.research.google.com/drive/1FdBUBQo0pNbDS5p4-FoNMrtGmXn6fh0n?usp=sharing" class="btn btn-secondary" role="button" target="_blank">🔗 Try it Here! (No Download Neccessary)</a>
+
 
 <details id="projectDetails" open>
 <summary id="toggleLabel"><strong>Click to hide</strong></summary>
@@ -79,5 +73,14 @@ label.innerHTML = details.open
 </script>
 
 <hr style="margin-top: 1.5rem; border: none; border-top: 1px solid #e1e4e8;">
-
+***Website coded in HTML/CSS/JavaScript***
+<span style="display:block">
+Skills: <span class="label label-excel">EXCEL</span>
+<span class="label label-r">R</span>
+<span class="label label-python">PYTHON</span>
+<span class="label label-sql">SQL</span>
+<span class="label label-html">HTML</span>
+<span class="label label-css">CSS</span>
+<span class="label label-js">JAVASCRIPT</span>
+</span>
 
