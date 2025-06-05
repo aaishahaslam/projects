@@ -14,6 +14,7 @@ Navigate using the sidebar to explore different sections.
 <a href="AaishahAslamResume.pdf#zoom=90" class="btn btn-primary" role="button" target="_blank">📄 My Resume</a>
 <br>
 <a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-secondary" role="button" target="_blank">🔗 Link to GitHub Home (Code Files)</a>
+<hr style="margin-top: 0rem; border: none; border-top: 1px solid #e1e4e8;">
 # Interactive Live Stock Market Options Risk Analysis Tool 📈 <br>
 I built a tool in python that scrapes live options market data for SPY and calculates/creates plots of the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date. 
 
@@ -22,11 +23,9 @@ I built a tool in python that scrapes live options market data for SPY and calcu
 The tool above uses real-time bid/ask quotes to calculate implied probability distributions (f(K), 1-f(K)), and estimates the average expected gain (CVaR) for scenarios where SPY ends above a selected strike. It also generates multiple plots to help interpret market sentiment, probability of profit, and payoff asymmetry under different strike levels. This tool runs in Google Colab and is designed for risk analysis. The methodology is drawn from Giovanni Barone Adesi papers which uses European put options and measures downside risk. I apply this framework to American call options and focus on upside potential.
 
 
-<br>
-<br>
 
+<hr style="margin-top: 0rem; border: none; border-top: 1px solid #e1e4e8;">
 # Other Projects
-<hr style="margin-top: 1.5rem; border: none; border-top: 1px solid #e1e4e8;">
 <details id="projectDetails" open>
 <summary id="toggleLabel"><strong>Click to hide</strong></summary>
 
