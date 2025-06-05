@@ -15,11 +15,10 @@ Navigate using the sidebar to explore different sections.
 <br>
 <a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-secondary" role="button" target="_blank">🔗 Link to GitHub Home (Code Files)</a>
 <hr style="margin-top: 1.5rem; border: none; border-top: 1px solid #e1e4e8;">
-<div style="margin-top: 0px">
-# Interactive Live Stock Market Options Risk Analysis Tool
+# Interactive Live Stock Market Options Risk Analysis Tool <br>
 I built a tool in python that scrapes live options market data for SPY and calculates/creates plots of the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date. 
 
-<a href="https://colab.research.google.com/drive/1FdBUBQo0pNbDS5p4-FoNMrtGmXn6fh0n?usp=sharing" class="btn btn-primary" role="button" target="_blank">🔗 Try it Here! (No Download Neccessary)</a>
+<a href="https://colab.research.google.com/drive/1FdBUBQo0pNbDS5p4-FoNMrtGmXn6fh0n?usp=sharing" class="btn btn-primary" role="button" target="_blank">🔗 Try it Here! (No Download Neccessary)</a> <br>
 
 The tool above uses real-time bid/ask quotes to calculate implied probability distributions (f(K), 1-f(K)), and estimates the average expected gain (CVaR) for scenarios where SPY ends above a selected strike. It also generates multiple plots to help interpret market sentiment, probability of profit, and payoff asymmetry under different strike levels. This tool runs in Google Colab and is designed for risk analysis. The methodology is drawn from Giovanni Barone Adesi papers which uses European put options and measures downside risk. I apply this framework to American call options and focus on upside potential in the tool.
 
@@ -79,7 +78,6 @@ label.innerHTML = details.open
 </script>
 
 <hr style="margin-top: 1.5rem; border: none; border-top: 1px solid #e1e4e8;">
-<div style="margin-top: 0px">
 ***Website coded in HTML/CSS/JavaScript***
 <span style="display:block">
 Skills: <span class="label label-excel">EXCEL</span>
