@@ -14,7 +14,6 @@ Navigate using the sidebar to explore different sections.
 <a href="AaishahAslamResume.pdf#zoom=90" class="btn btn-primary" role="button" target="_blank">📄 My Resume</a>
 <br>
 <a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-secondary" role="button" target="_blank">🔗 Link to GitHub Home (Code Files)</a>
-##<span style="display: block; height: 0.5rem;"></span>
 # Interactive Live Stock Market Options Risk Analysis Tool <br>
 I built a tool in python that scrapes live options market data for SPY and calculates/creates plots of the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date. 
 
@@ -27,6 +26,7 @@ The tool above uses real-time bid/ask quotes to calculate implied probability di
 <br>
 
 # Other Projects
+<hr style="margin-top: 1.5rem; border: none; border-top: 1px solid #e1e4e8;">
 <details id="projectDetails" open>
 <summary id="toggleLabel"><strong>Click to hide</strong></summary>
 
