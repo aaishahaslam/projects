@@ -77,7 +77,7 @@ label.innerHTML = details.open
 }); 
 </script>
 
-<hr style="margin-top: 0.5rem; border: none; border-top: 1px solid #e1e4e8;">
+<hr style="margin-top: 0rem; border: none; border-top: 1px solid #e1e4e8;">
 ***Website coded in HTML/CSS/JavaScript***
 <span style="display:block">
 Skills: <span class="label label-excel">EXCEL</span>
