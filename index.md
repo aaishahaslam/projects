@@ -21,7 +21,10 @@ I built a tool in python that scrapes live options market data for SPY and calcu
 
 <a href="https://colab.research.google.com/drive/1FdBUBQo0pNbDS5p4-FoNMrtGmXn6fh0n?usp=sharing" class="btn btn-secondary" role="button" target="_blank">🔗 Try it Here! (No Download Neccessary)</a>
 
+<br>
+<br>
 
+# Other Projects
 <details id="projectDetails" open>
 <summary id="toggleLabel"><strong>Click to hide</strong></summary>
 
