@@ -37,7 +37,7 @@ Since the probablity extracted from option prices is the discounted version of t
 
 ## Hows it different from delta?
 
-Delta gives a pointwise slope with respect to price, while f(K) gives the full risk-neutral probability density over strikes, which is essential to integrate and compute expected losses or gains. This allows you to look across multiple outcomes, weighted by their likelihood. 
+Delta gives a pointwise slope with respect to price, while f(K) gives the full risk-neutral probability density over strikes, which is essential to integrate and compute expected losses or gains. This allows you to look across multiple outcomes, weighted by their likelihood which allows you to calculate CVaR.
 
 ![Screenshot](cvar_equation.png)
 
