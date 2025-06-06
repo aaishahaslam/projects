@@ -4,7 +4,7 @@ nav_order: 1.7
 ---
 # **Stock Market Risk Analysis Tool (How It Works/Limitations)  📈**
 
-<br> <img src="assets/cvar_screenshot.png"> 
+(./cvar_screenshot.png"> 
 
 **I built a tool in python that scrapes live options market data for SPY and calculates/creates plots of the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date.**
 
