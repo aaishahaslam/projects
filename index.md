@@ -21,7 +21,9 @@ Navigate using the sidebar to explore different sections.
 <a href="https://colab.research.google.com/drive/1FdBUBQo0pNbDS5p4-FoNMrtGmXn6fh0n?usp=sharing" class="btn btn-primary" role="button" target="_blank">🔗 Try it Here! (No Download Neccessary)</a> <br>
 <br> <img src="assets/cvar_screenshot.png"> 
 <br>
-The tool above uses real-time bid/ask quotes to calculate implied probability distributions (f(K), 1-f(K)), and estimates the average expected gain (CVaR) for scenarios where SPY ends above a selected strike. It also generates multiple plots to help interpret market sentiment, probability of profit, and payoff asymmetry under different strike levels. This tool runs in Google Colab and is designed for risk analysis. The methodology is drawn from Giovanni Barone Adesi papers which uses European put options and measures downside risk. I apply this framework to American call options and focus on upside potential. 
+The tool above uses real-time bid/ask quotes to calculate implied probability distributions (f(K), 1-f(K)), and estimates the average expected gain (CVaR) for scenarios where SPY ends above a selected strike. It also generates multiple plots to help interpret market sentiment, probability of profit, and payoff asymmetry under different strike levels. This tool runs in Google Colab and is designed for risk analysis. The methodology is drawn from Giovanni Barone Adesi papers which uses European put options and measures downside risk. I apply this framework to American call options and focus on upside potential. <a href="./project0/">more details here</a>
+
+
 
 <hr style="margin-top: 0rem; border: none; border-top: 1px solid #e1e4e8;">
 # Other Projects  👩‍💻
