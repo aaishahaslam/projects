@@ -58,12 +58,6 @@ This project compares the forecasting performance of ARIMA models to predict qua
 </span>
 </p>
 
-<p>
-- <a href="./project3/">Eli Lilly And Co (LLY) Acquisition Analysis Project 💰</a> (in progress ⏳)<br>
-<span style="margin-left: 2em; display: block;">
-</span>
-</p>
-
 </details>
 
 <script>
