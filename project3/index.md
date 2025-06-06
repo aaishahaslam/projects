@@ -1,7 +1,4 @@
----
-title: "LLY Acquisition"
-nav_order: 5.2
----
+
 
 # LLY Acquisition (in progress)
 
