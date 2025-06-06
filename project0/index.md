@@ -41,15 +41,6 @@ Delta gives a pointwise slope with respect to price, while f(K) gives the full r
 
 ![Screenshot](cvar_equation.png)
 
-## Summary of Code:
-
-1. Scrapes live option data using API
-2. Estimates risk neutral probability distribution by differentiating call option mid prices across strikes and adjusting discounting
-3. Computes VaR and CVaR for upside outcomes where SPY > strike and estimating average gain beyond that strike using call prices and probability
-4. Visualizes probability curves, payoff region, and CVaR areas
-5. Runs in Google Colab
-
-
 ## More on the theory here:
 
 https://www.proquest.com/docview/2124659891?pq-origsite=gscholar&fromopenview=true&sourcetype=Scholarly%20Journals
