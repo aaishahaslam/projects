@@ -25,6 +25,16 @@ In the first graph that the code outputs, it shows the **CVaR region** in green 
 
 In the second graph that the code outputs, it shows the **average payoff** conditional on that 19.90% probability. There's a 80.1% that SPY finishes above strike price 555, and the average expected pay off is approximately 44.84 (this is before subtracting the premium paid for the option contract)
 
+## What is VaR?
+
+VaR or value at risk is the given threshold for CVaR. It answers "what is the worse-case loss I can expect with __% confidence over a given time?"
+
+In this tool, **VaR combined with CVaR**, answers the question, **"What is the average gain I can expect if SPY lands in the top 5% of possible outcomes (upper tail)?"**
+
+In the previous two graphs, we **manually set the strike = VaR.** Now in the third graph, we **derive the strike corresponding to a 5% tail (α = 0.95) based on the risk-neutral distribution implied by market option prices.** This gives us the strike that the market believes has only a 5% chance of being exceeded, making it the **natural VaR threshold.** The CVaR is then computed by taking the **average payoff across all strike prices beyond that VaR point to find the expected average payoff if SPY reached the top 5% tail outcomes.**
+
+
+
 ## Where do the probabilities come from?
 
 The probabilities come from differentiating option prices with respect to strike which allows us to extract the implied risk neutral distrubtion of SPY at expiration. Options reflect forward looking market expectations of what the market thinks SPY will be worth at expiration under a risk neutral measure. This is the risk neutral distribution **embedded** in option prices. 
