@@ -51,6 +51,10 @@ Delta gives a pointwise slope with respect to price, while f(K) gives the full r
 
 ![Screenshot](cvar_equation.png)
 
+## Notes
+* When CVaR gives average expected payoff, it is not profit. The profit would be expected payoff minus premium for option.
+* If the graphs have jagged lines or the estimates are off the charts, it means either noisy, illiquid, or stale option prices.
+
 ## More on the theory here:
 
 https://www.proquest.com/docview/2124659891?pq-origsite=gscholar&fromopenview=true&sourcetype=Scholarly%20Journals
