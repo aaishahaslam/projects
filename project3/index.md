@@ -1,7 +1,7 @@
 
 
 
-## This group project is an analysis of Eli Lilly and Company's acquisition on DICE Therapeutics, a biotech company in South San Francisco in Summer 2023. It includes the earnings impact from a stock vs cash transaction.
+## This group project is an analysis of Eli Lilly and Company's acquisition on DICE Therapeutics, a biotech company in South San Francisco in Summer 2023. It includes the earnings impact from a stock vs cash transaction (in progress)
 
 ### Target and Acquirer Background
 
