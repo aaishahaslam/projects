@@ -12,7 +12,7 @@ Bond issued by Apple with CUSIP: 037833AT7, maturity in 5/6/2044
 **The excel file below graphs the price/yield relationship of an Apple security maturing in 5/6/2044. Moving the **pink slider** displays a **sensitivity analysis** for rising and falling interest rates at different rates**, showing the corresponding duration, convexity, and price movement on the graph. This gives a better understanding on how bond prices react to interest rate changes, and how duration and convexity together provide a more accurate estimate of price sensitivity, especially for larger interest rate movements.
 
 # **Apple DCF 🍎**
-![Screenshot](apple_dcf.png)
+<img src="apple_dcf.png" alt="Screenshot" width="900">
 
 DCF financial valuation method is used to estimate the value of Apple based on its expected future cash flows under certain assumptions combined with sensitivity analysis to WACC and growth rate. This uses perpetuity growth and terminal multiple method; it also includes comps analysis to peer companies.
 
