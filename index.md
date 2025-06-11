@@ -12,7 +12,7 @@ This is the homepage of my projects.
 Navigate using the sidebar to explore different sections.
 <hr style="margin-top: 0rem; border: none; border-top: 1px solid #e1e4e8;">
 # Interactive Live Stock Market Options Risk Analysis Tool 📈 
-**I built a tool in python that scrapes live options market data for any stock in the S&P 500 and calculates/creates plots of the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date.**
+**I built a tool in python that scrapes live options market data for any stock in the S&P 500 and displays the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date.**
 
 <a href="https://colab.research.google.com/drive/1FdBUBQo0pNbDS5p4-FoNMrtGmXn6fh0n?usp=sharing" class="btn btn-primary" role="button" target="_blank">🔗 Try it Here! (No Download Neccessary)</a> <br>
 <br> <img src="project0/cvar_screenshot.png"> 
