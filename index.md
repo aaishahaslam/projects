@@ -3,7 +3,7 @@ title: "Home"
 nav_order: 1
 ---
 
-# Welcome to Aaishah's Projects 🚀 🌍 
+# **Welcome to Aaishah's Projects** 🚀 🌍 
 > Hi! My name is Aaishah, and I am from San Jose, Bay Area. I am currently an undergrad attending Cal Poly SLO majoring in finance + quantitative analysis and minoring in statistics and law. I have a huge passion for finance, and I’m super interested in the intersection between finance and statistics, and how quantitative approaches can be used for financial modeling or even forecasting market events or macroeconomic trends. My most recent work experience includes 1 year in financial reporting, 9 months in tech sales, and 5 months in digital media as well as 1 year of various research experiences. I’m actively pursuing opportunities in FP&A or financial analyst roles, where I can apply both my analytical background and strategic mindset. Outside of work, I enjoy day trading, concerts (EDM, indie, R&B), skincare, shopping, and boba.
 {: .callout-purple }
 
@@ -14,11 +14,11 @@ Navigate using the sidebar to explore different sections.
 <a href="AaishahAslamResume.pdf#zoom=90" class="btn btn-primary" role="button" target="_blank">📄 My Resume</a>
 <br>
 <hr style="margin-top: 0rem; border: none; border-top: 1px solid #e1e4e8;">
-# Interactive Live Stock Market Options Risk Analysis Tool 📈 
+# **Interactive Live Stock Market Options Risk Analysis Tool** 📈 
 **I built a tool in python that scrapes live options market data for SPY and calculates/creates plots of the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date.**
 
 <a href="https://colab.research.google.com/drive/1FdBUBQo0pNbDS5p4-FoNMrtGmXn6fh0n?usp=sharing" class="btn btn-primary" role="button" target="_blank">🔗 Try it Here! (No Download Neccessary)</a> <br>
-<br> <img src="assets/cvar_screenshot.png"> 
+<br> <img src="project0/cvar_screenshot.png"> 
 <br>
 **The tool above uses real-time bid/ask quotes to calculate implied probability distributions (f(K), 1-f(K)), and estimates the average expected gain (CVaR) for scenarios where SPY ends above a selected strike. It also generates multiple plots to help interpret market sentiment, probability of profit, and payoff asymmetry under different strike levels. This tool runs in Google Colab and is designed for risk analysis. The methodology is drawn from Giovanni Barone Adesi papers which uses European put options and measures downside risk. I apply this framework to American call options and focus on upside potential.** <a href="./project0/">(See Details Here)</a>
 
