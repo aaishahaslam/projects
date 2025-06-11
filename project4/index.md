@@ -14,5 +14,7 @@ Bond issued by Apple with CUSIP: 037833AT7, maturity in 5/6/2044
 # **Apple DCF 🍎**
 ![Screenshot](apple_dcf.png)
 
+DCF financial valuation method is used to estimate the value of Apple based on its expected future cash flows under certain assumptions combined with sensitivity analysis to WACC and growth rate. This uses perpetuity growth and terminal multiple method; it also includes comps analysis to peer companies.
+
 <a href="https://aaishahaslam.github.io/projects/project4/apple_bond_analysis_and_dcf.xlsx" class="btn btn-primary" role="button" target="_blank">🔗 See Excel File</a>
 
