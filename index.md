@@ -10,7 +10,6 @@ nav_order: 1
 
 This is the homepage of my projects.  
 Navigate using the sidebar to explore different sections.
-
 <hr style="margin-top: 0rem; border: none; border-top: 1px solid #e1e4e8;">
 # Interactive Live Stock Market Options Risk Analysis Tool 📈 
 **I built a tool in python that scrapes live options market data for any stock in the S&P 500 and calculates/creates plots of the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date.**
