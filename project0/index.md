@@ -31,8 +31,9 @@ VaR or value at risk is the given threshold for CVaR. It answers "what is the wo
 
 In this tool, **VaR combined with CVaR**, answers the question, **"What is the average gain I can expect if SPY lands in the top 5% of possible outcomes (upper tail)?"**
 
-In the previous two graphs, we **manually set the strike = VaR.** Now in the third graph, we **derive the strike corresponding to a 5% tail (α = 0.95) based on the risk-neutral distribution implied by market option prices.** This gives us the strike that the market believes has only a 5% chance of being exceeded, making it the **natural VaR threshold.** The CVaR is then computed by taking the **average payoff across all strike prices beyond that VaR point to find the expected average payoff if SPY reached the top 5% tail outcomes.**
+![Screenshot](var_screenshot.png)
 
+In the previous two graphs, we **manually set the strike = VaR.** Now in the third graph, we **derive the strike corresponding to a 5% tail (α = 0.95) based on the risk-neutral distribution implied by market option prices.** This gives us the strike that the market believes has only a 5% chance of being exceeded, making it the **natural VaR threshold.** The CVaR is then computed by taking the **average payoff across all strike prices beyond that VaR point to find the expected average payoff if SPY reached the top 5% tail outcomes.**
 
 
 ## Where do the probabilities come from?
@@ -45,15 +46,19 @@ The methodology comes from Giovanni Barone Adesi papers which uses European put 
 
 Since the probablity extracted from option prices is the discounted version of that probability, we have to undo the discounting to get the **raw probability** at expiration. This means that we will get the risk neutral probability at expiration instead of in today's terms. The code undos the discounting as well giving the raw probability at maturity. 
 
+![Screenshot](probability_ss.png)
+
+
+## Notes
+* When CVaR gives average expected payoff, it is not profit. The profit would be expected payoff minus premium for option.
+* If the graphs have jagged lines or the estimates are off the charts, it means either noisy, illiquid, or stale option prices.
+
 ## Hows it different from delta?
 
 Delta gives a pointwise slope with respect to price, while f(K) gives the full risk-neutral probability density over strikes, which is essential to integrate and compute expected losses or gains. This allows you to look across multiple outcomes, weighted by their likelihood which allows you to calculate CVaR.
 
 ![Screenshot](cvar_equation.png)
 
-## Notes
-* When CVaR gives average expected payoff, it is not profit. The profit would be expected payoff minus premium for option.
-* If the graphs have jagged lines or the estimates are off the charts, it means either noisy, illiquid, or stale option prices.
 
 ## More on the theory here:
 
