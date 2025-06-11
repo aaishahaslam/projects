@@ -6,7 +6,7 @@ nav_order: 1.7
 
 ![Screenshot](cvar_screenshot.png)
 
-**I built a tool in python that scrapes live options market data for SPY and calculates/creates plots of the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date.**
+**I built a tool in python that scrapes live options market data for any stock in the S&P 500 and calculates/creates plots of the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date.**
 
 <a href="https://colab.research.google.com/drive/1FdBUBQo0pNbDS5p4-FoNMrtGmXn6fh0n?usp=sharing" class="btn btn-primary" role="button" target="_blank">🔗 Try it Here! (No Download Neccessary)</a> <br>
 
@@ -17,7 +17,7 @@ My tool uses **CVaR upside analysis** and answers the question, **"If a gain exc
 
 ![Screenshot](cvar_visual.png)
 
-For this example, say we choose strike price 555 and expiration date 10/31/2025 for today (code ran in spring 2025)
+For this example, say we choose ticker SPY, strike price 555, and expiration date 10/31/2025 for today (code ran in spring 2025)
 
 In the first graph that the code outputs, it shows the **CVaR region** in green and shows the **probabality** that SPY will end below strike price (k) 555 at the expiration of October 31, 2025 which is 19.90%.  The blue line traces out the **implied cumulative distribution** under the risk-neutral measure. It's jagged at some points due to sparse data or noise. The green region is the region for calculating CVaR.
 
