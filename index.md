@@ -9,7 +9,7 @@ nav_order: 1
 
 
 This is the homepage of my projects.  
-Navigate using the sidebar to explore different sections.
+Navigate using the sidebar to explore different sections.<br>
 <a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-secondary" role="button" target="_blank">🔗 Link to GitHub Home (Code Files)</a>
 <hr style="margin-top: 0rem; border: none; border-top: 1px solid #e1e4e8;">
 # Interactive Live Stock Market Options Risk Analysis Tool 📈 
