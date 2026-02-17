@@ -6,10 +6,11 @@ nav_order: 1
 # Aaishah's Projects 🚀 🌍 
 > Hi! My name is Aaishah, and I am from San Jose, Bay Area. I am currently an undergrad attending Cal Poly SLO majoring in finance + quantitative analysis and minoring in statistics and law. I'm passionate about finance, and I’m super interested in the intersection between finance and statistics, and how quantitative approaches can be used for financial modeling or even forecasting market events or macroeconomic trends. Outside of work, I enjoy day trading, concerts (EDM, indie, R&B), skincare, shopping, and boba.
 > My most recent work experience includes:
-> Financial Analyst (FP&A) @ Workato
-> Financial Analyst @ Intapp
-> Financial Analyst @ AfterQuery
-> Tech Sales @ Exclusive Networks
+- Financial Analyst (FP&A) @ Workato
+- Financial Analyst @ Intapp
+- Financial Analyst @ AfterQuery
+- Tech Sales @ Exclusive Networks
+- Quant Research (Options CVaR) & Equity Research @ Cal Poly
 {: .callout-purple }
 
 
