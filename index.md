@@ -10,7 +10,6 @@ nav_order: 1
 - Financial Analyst @ Intapp
 - Financial Analyst @ AfterQuery
 - Tech Sales @ Exclusive Networks
-- Quant Research (Options CVaR) & Equity Research @ Cal Poly
 {: .callout-purple }
 
 
