@@ -90,6 +90,5 @@ Skills: <span class="label label-excel">EXCEL</span>
 
 
 
-</span>
 
 
