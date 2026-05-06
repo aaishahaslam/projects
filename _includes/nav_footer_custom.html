@@ -1,8 +1,0 @@
-<button id="theme-toggle" style="margin: 1rem; padding: 0.4rem 0.8rem; cursor: pointer; border-radius: 6px; border: 1px solid #ccc; background: transparent; color: inherit; font-size: 0.85rem;"
-  onclick="
-    const current = document.documentElement.getAttribute('data-color-scheme');
-    const next = current === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-color-scheme', next);
-    localStorage.setItem('theme', next);
-    this.textContent = next === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
-  ">☀️ Light Mode</button>

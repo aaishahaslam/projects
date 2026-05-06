@@ -1,0 +1,19 @@
+<button id="theme-toggle" style="margin: 1rem; padding: 0.4rem 0.8rem; cursor: pointer; border-radius: 6px; border: 1px solid #ccc; background: transparent; color: inherit; font-size: 0.85rem;">☀️ Light Mode</button>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+
+  // Apply saved theme on load
+  const saved = localStorage.getItem('theme') || 'dark';
+  root.setAttribute('data-color-scheme', saved);
+  toggle.textContent = saved === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+
+  toggle.addEventListener('click', () => {
+    const current = root.getAttribute('data-color-scheme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-color-scheme', next);
+    localStorage.setItem('theme', next);
+    toggle.textContent = next === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+  });
+</script>
