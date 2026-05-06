@@ -5,13 +5,6 @@ https://aaishahaslam.github.io/projects/
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 About me: 
 > Finance + Quantitative Analysis @ Cal Poly SLO university, with minors in Statistics and Law. My most recent work experience includes:
 
