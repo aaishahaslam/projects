@@ -3,7 +3,7 @@ title: "Home"
 nav_order: 1
 ---
 
-# Aaishah's Projects 🚀 🌍 
+<h1 style="font-size: 2.5rem; font-weight: 900;">Aaishah's Projects 🚀 🌍</h1>
 > Hi! My name is Aaishah, and I am from San Jose, Bay Area. I am currently an undergrad attending Cal Poly SLO majoring in finance + quantitative analysis and minoring in statistics and law. I'm passionate about finance, and I’m super interested in the intersection between finance and statistics, and how quantitative approaches can be used for financial modeling or even forecasting market events or macroeconomic trends. Outside of work, I enjoy day trading, concerts (EDM, indie, R&B), skincare, shopping, and boba.
 > My most recent work experience includes:
 - Financial Analyst (FP&A) @ Workato
@@ -15,7 +15,7 @@ nav_order: 1
 
 This is the homepage of my projects.  
 Navigate using the sidebar to explore different sections.<br>
-<a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-secondary" role="button" target="_blank">🔗 Link to GitHub Home (Code Files)</a>
+<a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-primary" role="button" target="_blank">🔗 Link to GitHub Home (Code Files)</a>
 <hr style="margin-top: 0rem; border: none; border-top: 1px solid #e1e4e8;">
 # Interactive Live Stock Market Options Risk Analysis Tool 📈 
 **I built a tool in python that scrapes live options market data for any stock in the S&P 500 and displays the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date.**
