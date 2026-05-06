@@ -1,13 +1,8 @@
-<script>
-  const saved = localStorage.getItem('theme') || 'dark';
-  document.documentElement.setAttribute('data-color-scheme', saved);
-</script>
-
 <style>
-  [data-color-scheme="light"] {
+  body.light-mode {
     filter: invert(1) hue-rotate(180deg);
   }
-  [data-color-scheme="light"] img {
+  body.light-mode img {
     filter: invert(1) hue-rotate(180deg);
   }
 </style>
