@@ -18,8 +18,9 @@ Navigate using the sidebar to explore different sections.<br>
 <a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-primary" role="button" target="_blank">🔗 Link to GitHub Home (Code Files)</a>
 <hr style="margin-top: 0rem; border: none; border-top: 1px solid #e1e4e8;">
 <h1 style="font-size: 2.5rem; font-weight: 900;"> Live Stock Market Options Scenario-Based Risk Analysis Tool 📈 </h1>
-< **I built a tool in python that scrapes live options market data for any stock in the S&P 500 and displays the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date. This is useful for conducting scenario based risk analysis for potential return distributions across stocks.**
-{: .callout-purple }
+<blockquote class="callout-purple">
+<strong>I built a tool in python that scrapes live options market data for any stock in the S&P 500 and displays the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date. This is useful for conducting scenario based risk analysis for potential return distributions across stocks.</strong>
+</blockquote>
 
 <a href="https://colab.research.google.com/drive/1FdBUBQo0pNbDS5p4-FoNMrtGmXn6fh0n?usp=sharing" class="btn btn-primary" role="button" target="_blank">🔗 Try it Here! (No Download Neccessary)</a> <br>
 <br> <img src="project0/cvar_screenshot.png"> 
