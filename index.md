@@ -17,7 +17,7 @@ This is the homepage of my projects.
 Navigate using the sidebar to explore different sections.<br>
 <a href="https://github.com/aaishahaslam/projects/tree/main?tab=readme-ov-file" class="btn btn-primary" role="button" target="_blank">🔗 Link to GitHub Home (Code Files)</a>
 <hr style="margin-top: 0rem; border: none; border-top: 1px solid #e1e4e8;">
-# Interactive Live Stock Market Options Risk Analysis Tool 📈 
+<h1 style="font-size: 2.5rem; font-weight: 900;">Interactive Live Stock Market Options Risk Analysis Tool 📈 </h1>
 **I built a tool in python that scrapes live options market data for any stock in the S&P 500 and displays the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date.**
 
 <a href="https://colab.research.google.com/drive/1FdBUBQo0pNbDS5p4-FoNMrtGmXn6fh0n?usp=sharing" class="btn btn-primary" role="button" target="_blank">🔗 Try it Here! (No Download Neccessary)</a> <br>
@@ -28,7 +28,7 @@ Navigate using the sidebar to explore different sections.<br>
 
 
 <hr style="margin-top: 0rem; border: none; border-top: 1px solid #e1e4e8;">
-# Other Projects  👩‍💻
+<h1 style="font-size: 2.5rem; font-weight: 900;">Other Projects  👩‍💻 </h1> 
 <details id="projectDetails" open>
 <summary id="toggleLabel"><strong>Click to hide</strong></summary>
 
