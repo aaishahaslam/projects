@@ -1,3 +1,12 @@
 # Welcome To My Project Site! 📊✏️🛠️  
-link to website (click here): 
+Link to website (click here): 
 https://aaishahaslam.github.io/projects/
+
+
+
+About me: Finance + Quantitative Analysis @ Cal Poly SLO university, with minors in Statistics and Law. My most recent work experience includes:
+
+- Financial Analyst (FP&A) @ Workato
+- Financial Analyst @ Intapp
+- Financial Analyst @ AfterQuery
+- Tech Sales @ Exclusive Networks
