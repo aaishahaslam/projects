@@ -74,7 +74,6 @@ label.innerHTML = details.open
 </script>
 
 <hr style="margin-top: 0rem; border: none; border-top: 1px solid #e1e4e8;">
-***Website coded in HTML/CSS/JavaScript***
 <span style="display:block">
 Skills: <span class="label label-excel">EXCEL</span>
 <span class="label label-r">R</span>
@@ -83,6 +82,14 @@ Skills: <span class="label label-excel">EXCEL</span>
 <span class="label label-html">HTML</span>
 <span class="label label-css">CSS</span>
 <span class="label label-js">JAVASCRIPT</span>
+<span class="label label-js">NETSUITE</span>
+<span class="label label-js">ANAPLAN</span>
+<span class="label label-js">POWER BI</span>
+<span class="label label-js">AUDITBOARD</span>
+<span class="label label-js">ACTIVE DISCLOSURE</span>
+
+
+
 </span>
 
 
