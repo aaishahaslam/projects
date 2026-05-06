@@ -6,7 +6,7 @@ nav_order: 1.7
 
 ![Screenshot](cvar_screenshot.png)
 
-**I built a tool in python that scrapes live options market data for any stock in the S&P 500 and calculates/creates plots of the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date.**
+**I built a tool in python that scrapes live options market data for any stock in the S&P 500 and calculates/creates plots of the risk neutral probabilities and conditional value at risk pay offs for each corresponding strike price and expiration date. This is useful for conducting scenario based risk analysis for potential return distributions across stocks.**
 
 <a href="https://colab.research.google.com/drive/1FdBUBQo0pNbDS5p4-FoNMrtGmXn6fh0n?usp=sharing" class="btn btn-primary" role="button" target="_blank">🔗 Try it Here! (No Download Neccessary)</a> <br>
 
