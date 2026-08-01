@@ -4,7 +4,7 @@ nav_order: 1
 ---
 
 <h1 style="font-size: 2.5rem; font-weight: 900;">Aaishah's Projects 🚀 🌍</h1>
-> Hi! My name is Aaishah, and I am from San Jose, Bay Area. I am currently an undergrad attending Cal Poly SLO majoring in finance + quantitative analysis and minoring in statistics and law. I'm passionate about finance, and I’m super interested in the intersection between finance and statistics, and how quantitative approaches can be used for financial modeling or even forecasting market events or macroeconomic trends. Outside of work, I enjoy day trading, concerts (EDM, indie, R&B), skincare, shopping, and boba.
+> Hi! My name is Aaishah, and I am from San Jose, Bay Area. I'm passionate about finance and statistics, and using quantitative approaches for financial modeling and analzying market events and macroeconomic trends. Outside of work, I enjoy day trading, concerts (EDM, indie, R&B), skincare, shopping, and boba.
 > My most recent work experience includes:
 - Financial Analyst (FP&A) @ Workato
 - Financial Analyst @ Intapp
