@@ -6,6 +6,7 @@ nav_order: 1
 <h1 style="font-size: 2.5rem; font-weight: 900;">Aaishah's Projects 🚀 🌍</h1>
 > Hi! My name is Aaishah, and I am from San Jose, Bay Area. I'm passionate about finance and statistics, and using quantitative approaches for financial modeling and analzying market events and macroeconomic trends. Outside of work, I enjoy day trading, concerts (EDM, indie, R&B), skincare, shopping, and boba.
 > My most recent work experience includes:
+- Consulting Analyst @ Deloitte
 - Financial Analyst (FP&A) @ Workato
 - Financial Analyst @ Intapp
 - Financial Analyst @ AfterQuery
