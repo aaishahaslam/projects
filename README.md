@@ -13,7 +13,7 @@ About me:
 <br>
 Finance + Quantitative Analysis @ Cal Poly SLO university, with minors in Statistics and Law. My most recent work experience includes:
 
-- Consulting Analyst (FP&A) @ Workato
+- Consulting Analyst @ Deloitte
 - Financial Analyst (FP&A) @ Workato
 - Financial Analyst @ Intapp
 - Financial Analyst @ AfterQuery
